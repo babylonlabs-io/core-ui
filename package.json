@@ -1,5 +1,5 @@
 {
-  "name": "bbn-core-ui",
+  "name": "@babylonlabs-io/bbn-core-ui",
   "version": "0.0.0",
   "type": "module",
   "publishConfig": {
