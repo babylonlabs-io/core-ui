@@ -8,9 +8,17 @@ import { Backdrop } from "./components/Backdrop";
 export interface DialogProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   open?: boolean;
   onClose?: () => void;
+  hasBackdrop?: boolean;
 }
 
-export const Dialog = ({ children, open = false, className, onClose, ...restProps }: DialogProps) => {
+export const Dialog = ({
+  children,
+  open = false,
+  className,
+  onClose,
+  hasBackdrop = true,
+  ...restProps
+}: DialogProps) => {
   const { mounted, unmount } = useModalManager({ open });
 
   return (
@@ -28,7 +36,7 @@ export const Dialog = ({ children, open = false, className, onClose, ...restProp
         </div>
       </div>
 
-      <Backdrop open={open} onClick={onClose} />
+      {hasBackdrop && <Backdrop open={open} onClick={onClose} />}
     </Portal>
   );
 };
