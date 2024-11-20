@@ -7,8 +7,9 @@ const STYLES = {
     secondary: "bg-secondary-main text-secondary-contrast hover:bg-secondary-dark disabled:bg-primary/12",
   },
   outlined: {
-    primary: "bg-primary-light text-secondary-contrast hover:bg-primary",
-    secondary: "bg-secondary-main text-secondary-contrast hover:bg-secondary-dark",
+    primary: "border border-primary-light text-primary-main hover:border-primary hover:bg-primary/10",
+    secondary:
+      "border border-secondary-main text-secondary-main hover:border-secondary-light hover:bg-secondary-light/10",
   },
 } as const;
 
