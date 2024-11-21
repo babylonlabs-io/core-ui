@@ -21,3 +21,19 @@ jobs:
       publish: ${{ github.event_name == 'workflow_dispatch' }}
       publish-command: |
         npm run release
+
+  check_version_change:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check for version change
+        id: version_check
+        run: |
+          git fetch origin main
+          git diff origin/main -- package.json | grep '"version":' || echo "No version change detected"
+
+      - name: Conditional Release
+        if: steps.version_check.outputs.version_changed == 'true'
+        run: npm run release
