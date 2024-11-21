@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "incremental": true,
     "target": "ES2020",
     "baseUrl": "./src",
     "useDefineForClassFields": true,
@@ -13,8 +14,13 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
+    "noEmit": false,
     "jsx": "react-jsx",
+
+    /* Declarations */
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "dist",
 
     /* Linting */
     "strict": true,
@@ -23,7 +29,9 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/*": ["*", "./*"]
-    }
+    },
+    "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "keywords": ["react", "ui-components", "babylonlabs", "bitcoin", "bitcoin-ui"]
 }
