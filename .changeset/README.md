@@ -6,3 +6,25 @@ find the full documentation for it [in our repository](https://github.com/change
 
 We have a quick list of common questions to get you started engaging with this project in
 [our documentation](https://github.com/changesets/changesets/blob/main/docs/common-questions.md)
+
+# Usage
+1. `npx changeset` to create a changeset
+
+2. Select change type: 
+
+Major: 
+- Describes when to use a major change, focusing on breaking changes.
+
+Minor: 
+- Describes when to use a minor change, focusing on new features that are backward compatible.
+
+Patch: 
+- Describes when to use a patch change, focusing on bug fixes and small improvements.
+
+3. edit the file in .changeset for further details
+4. `npx changeset version` to update the package version
+5. Input Summary
+6. Confirm changeset
+7. Generated changeset is generated under .changeset dir
+8. Commit change
+9. Merge PR on github
