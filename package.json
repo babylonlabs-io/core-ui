@@ -30,9 +30,7 @@
     "release": "npm run build && changeset publish"
   },
   "files": [
-    "src",
-    "dist",
-    "public"
+    "dist"
   ],
   "peerDependencies": {
     "react": "^18.3.1",
