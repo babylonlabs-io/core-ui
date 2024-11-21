@@ -1,4 +1,4 @@
-import { HTMLProps, createElement, forwardRef } from "react";
+import { type HTMLProps, createElement, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 const STYLES = {
@@ -13,12 +13,12 @@ const STYLES = {
 type Variant = keyof typeof STYLES;
 
 export interface TextProps extends HTMLProps<HTMLElement> {
-  variant: Variant;
+  variant?: Variant;
   as?: string;
 }
 
 export const Text = forwardRef<HTMLElement, TextProps>(
-  ({ variant, as = "p", children, className, ...restProps }, ref) => {
+  ({ variant = "body1", as = "p", children, className, ...restProps }, ref) => {
     return createElement(
       as,
       {
