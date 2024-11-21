@@ -6,3 +6,23 @@ find the full documentation for it [in our repository](https://github.com/change
 
 We have a quick list of common questions to get you started engaging with this project in
 [our documentation](https://github.com/changesets/changesets/blob/main/docs/common-questions.md)
+
+# Usage
+`npx changeset`
+
+1. Select change type: 
+
+Major: 
+- Describes when to use a major change, focusing on breaking changes.
+
+Minor: 
+- Describes when to use a minor change, focusing on new features that are backward compatible.
+
+Patch: 
+- Describes when to use a patch change, focusing on bug fixes and small improvements.
+
+2. Input Summary
+3. Confirm changeset
+4. Generated changeset is generated under .changeset dir
+5. commit change
+6. Merge PR on github
