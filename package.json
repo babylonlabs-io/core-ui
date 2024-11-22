@@ -16,7 +16,8 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
-    }
+    },
+    "./tailwind": "./tailwind.config.js"
   },
   "scripts": {
     "dev": "npm run storybook",
