@@ -62,6 +62,7 @@ export default {
     },
     letterSpacing: {
       normal: "0",
+      0.1: "0.1px",
       0.15: "0.15px",
       0.25: "0.25px",
       0.4: "0.4px",

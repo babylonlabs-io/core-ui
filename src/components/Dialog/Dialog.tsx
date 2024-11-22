@@ -1,5 +1,6 @@
 import { type DetailedHTMLProps, type HTMLAttributes } from "react";
-import { twMerge } from "tailwind-merge";
+import { twJoin } from "tailwind-merge";
+import "./Dialog.css";
 
 import { Portal } from "@/components/Portal";
 import { useModalManager } from "@/hooks/useModalManager";
@@ -23,13 +24,9 @@ export const Dialog = ({
 
   return (
     <Portal mounted={mounted}>
-      <div {...restProps} className="fixed left-1/2 top-1/2 z-50 max-w-full -translate-x-1/2 -translate-y-1/2">
+      <div {...restProps} className="bbn-dialog-wrapper">
         <div
-          className={twMerge(
-            "rounded border border-primary-light/20 bg-[#ffffff] p-6",
-            open ? "animate-modal-in" : "animate-modal-out",
-            className,
-          )}
+          className={twJoin("bbn-dialog", open ? "animate-modal-in" : "animate-modal-out", className)}
           onAnimationEnd={unmount}
         >
           {children}

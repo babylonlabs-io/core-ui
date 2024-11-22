@@ -1,16 +1,8 @@
 import { type HTMLProps, createElement, forwardRef } from "react";
-import { twMerge } from "tailwind-merge";
+import { twJoin } from "tailwind-merge";
+import "./Text.css";
 
-const STYLES = {
-  body1: "text-base tracking-0.15",
-  body2: "text-sm tracking-0.15",
-  subtitle1: "text-base leading-7 tracking-0.15",
-  subtitle2: "text-sm font-bold leading-normal tracking-0.1",
-  overline: "text-xs leading-8 tracking-1 uppercase",
-  caption: "text-xs tracking-0.4",
-} as const;
-
-type Variant = keyof typeof STYLES;
+type Variant = "body1" | "body2" | "subtitle1" | "subtitle2" | "overline" | "caption";
 
 export interface TextProps extends HTMLProps<HTMLElement> {
   variant?: Variant;
@@ -24,7 +16,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
       {
         ...restProps,
         ref,
-        className: twMerge(STYLES[variant], className),
+        className: twJoin(`bbn-text-${variant}`, className),
       },
       children,
     );

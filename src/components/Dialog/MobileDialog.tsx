@@ -1,5 +1,6 @@
 import { type DetailedHTMLProps, type HTMLAttributes } from "react";
-import { twMerge } from "tailwind-merge";
+import { twJoin } from "tailwind-merge";
+import "./Dialog.css";
 
 import { Portal } from "@/components/Portal";
 import { useModalManager } from "@/hooks/useModalManager";
@@ -17,8 +18,8 @@ export const MobileDialog = ({ children, open = false, className, onClose, ...re
     <Portal mounted={mounted}>
       <div
         {...restProps}
-        className={twMerge(
-          "fixed inset-x-0 bottom-0 z-50 flex flex-col rounded-t-3xl bg-[#ffffff] px-4 pb-4 pt-6",
+        className={twJoin(
+          "bbn-dialog-mobile",
           open ? "animate-mobile-modal-in" : "animate-mobile-modal-out",
           className,
         )}

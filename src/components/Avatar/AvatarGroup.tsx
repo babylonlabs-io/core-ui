@@ -1,5 +1,6 @@
 import { type PropsWithChildren, Children, cloneElement, isValidElement } from "react";
-import { twMerge } from "tailwind-merge";
+import { twJoin, twMerge } from "tailwind-merge";
+import "./AvatarGroup.css";
 
 import { type AvatarProps, Avatar } from "./Avatar";
 
@@ -20,7 +21,7 @@ export const AvatarGroup = ({
   const count = Children.count(children);
 
   return (
-    <div className={twMerge("sup-avatar-group flex -space-x-2.5", className)}>
+    <div className={twJoin("bbn-avatar-group", className)}>
       {Children.map(children, (child, index) =>
         isValidElement<AvatarProps>(child) && index + 1 <= max
           ? cloneElement(child, {

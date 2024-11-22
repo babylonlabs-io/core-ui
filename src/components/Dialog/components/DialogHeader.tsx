@@ -1,5 +1,5 @@
 import type { DetailedHTMLProps, HTMLAttributes } from "react";
-import { twMerge } from "tailwind-merge";
+import { twJoin } from "tailwind-merge";
 
 import { Heading } from "@/components/Heading";
 import { IconButton } from "@/components/Button";
@@ -9,7 +9,7 @@ export interface DialogHeaderProps extends DetailedHTMLProps<HTMLAttributes<HTML
 }
 
 export const DialogHeader = ({ className, children, onClose }: DialogHeaderProps) => (
-  <div className={twMerge("flex items-center justify-between gap-2", className)}>
+  <div className={twJoin("bbn-dialog-header", className)}>
     <Heading variant="h5">{children}</Heading>
 
     {Boolean(onClose) && (

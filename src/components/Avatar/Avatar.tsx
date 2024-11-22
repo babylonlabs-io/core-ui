@@ -1,5 +1,6 @@
 import type { CSSProperties, PropsWithChildren } from "react";
-import { twMerge } from "tailwind-merge";
+import { twJoin } from "tailwind-merge";
+import "./Avatar.css";
 
 export interface AvatarProps extends PropsWithChildren {
   alt?: string;
@@ -10,31 +11,10 @@ export interface AvatarProps extends PropsWithChildren {
   variant?: "circular" | "rounded" | "square";
 }
 
-const SIZES = {
-  tiny: "size-[1.125rem]",
-  small: "size-6",
-  medium: "size-8",
-  large: "size-10",
-} as const;
-
-const VARIANTS = {
-  circular: "rounded-full",
-  rounded: "rounded",
-  square: "",
-} as const;
-
 export function Avatar({ className, style, size = "large", variant = "circular", alt, url, children }: AvatarProps) {
   return (
-    <div
-      style={style}
-      className={twMerge(
-        "inline-flex justify-center items-center overflow-hidden",
-        SIZES[size],
-        VARIANTS[variant],
-        className,
-      )}
-    >
-      {url ? <img className="size-full object-cover object-center" src={url} alt={alt} /> : children}
+    <div style={style} className={twJoin("bbn-avatar", `bbn-avatar-${size}`, `bbn-avatar-${variant}`, className)}>
+      {url ? <img className="bbn-avatar-img" src={url} alt={alt} /> : children}
     </div>
   );
 }
