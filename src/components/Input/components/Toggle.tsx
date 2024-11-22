@@ -5,7 +5,8 @@ import {
   type HTMLAttributes,
   forwardRef,
 } from "react";
-import { twMerge, twJoin } from "tailwind-merge";
+import { twJoin } from "tailwind-merge";
+import "./Toggle.css";
 
 import { Text } from "@/components/Text";
 import { useControlledState } from "@/hooks/useControlledState";
@@ -63,20 +64,14 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
   }
 
   const toggle = (
-    <span
-      className={twMerge(
-        "relative inline-block transition-colors duration-200",
-        disabled ? "text-primary/12" : "text-primary-light hover:text-primary-main",
-        className,
-      )}
-    >
+    <span className={twJoin("bbn-toggle", disabled && "bbn-toggle-disabled", className)}>
       {renderIcon(checkedState)}
 
       <input
         ref={ref}
         type={inputType}
         disabled={disabled}
-        className={twJoin("absolute inset-0 z-[1] opacity-0", disabled ? "cursor-default" : "cursor-pointer")}
+        className="bbn-toggle-input"
         {...restProps}
         {...inputProps}
         checked={checkedState}
@@ -90,9 +85,9 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
       <Text
         as="label"
         variant="body1"
-        className={twMerge(
-          "inline-flex h-5 items-center gap-4",
-          orientation === "left" ? "flex-row" : "flex-row-reverse",
+        className={twJoin(
+          "bbn-toggle-label",
+          orientation === "left" ? "bbn-toggle-left" : "bbn-toggle-right",
           labelClassName,
         )}
       >
