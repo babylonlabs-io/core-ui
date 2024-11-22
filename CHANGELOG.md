@@ -1,5 +1,12 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.0.9
+
+### Patch Changes
+
+- ce27136: update npm ignore
+- 0970ba1: Export tailwind config
+
 ## 0.0.8
 
 ### Patch Changes
