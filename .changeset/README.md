@@ -11,7 +11,7 @@ We have a quick list of common questions to get you started engaging with this p
 1. `npx changeset` to create a changeset
 
 2. Select change type: 
-
+```
 Major: 
 - Describes when to use a major change, focusing on breaking changes.
 
@@ -20,11 +20,16 @@ Minor:
 
 Patch: 
 - Describes when to use a patch change, focusing on bug fixes and small improvements.
+```
 
-3. edit the file in .changeset for further details
-4. `npx changeset version` to update the package version
-5. Input Summary
-6. Confirm changeset
-7. Generated changeset is generated under .changeset dir
-8. Commit change
-9. Merge PR on github
+3. Input Summary
+4. Confirm changeset
+5. Generated changeset is generated under .changeset dir
+6. Edit the file in .changeset for further details
+7. Commit change and push to Github
+8. Github Actions will automatically publish the package and create a new PR named `Version Packages`
+9. After reviewing, merge the `Version Packages` PR on Github, the package version is then updated and published to npm.
+
+Notes:
+- The `Version Packages` is automatically updated with the latest changeset(s).
+- The `Version Packages` will only update the package versions and publish to npm, not the actual code.
