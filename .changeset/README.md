@@ -27,7 +27,7 @@ Patch:
 5. Generated changeset is generated under .changeset dir
 6. Edit the file in .changeset for further details
 7. Commit change and push to Github
-8. Github Actions will automatically publish the package and create a new PR named `Version Packages`
+8. Github Actions will automatically create a new PR named `Version Packages`
 9. After reviewing, merge the `Version Packages` PR on Github, the package version is then updated and published to npm.
 
 Notes:

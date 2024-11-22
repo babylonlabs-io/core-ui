@@ -27,7 +27,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky",
-    "changeset": "npx changeset && changeset version",
     "release": "npm run build && changeset publish"
   },
   "files": [
