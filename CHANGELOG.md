@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.0.8
+
+### Patch Changes
+
+- c8fedd8: fix build config
+
 ## 0.0.7
 
 ### Patch Changes
