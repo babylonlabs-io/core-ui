@@ -7,9 +7,12 @@
       <a href="https://www.npmjs.com/package/@babylonlabs-io/bbn-core-ui"><img src="https://badge.fury.io/js/@babylonlabs-io%2Fbbn-core-ui.svg" alt="npm version" height="18"></a>
     </p>
 </p>
-<br/>
+
+---
 
 ## Installation
+
+To install the package, run the following command:
 
 ```console
 npm i @babylonlabs-io/bbn-core-ui
@@ -17,12 +20,26 @@ npm i @babylonlabs-io/bbn-core-ui
 
 ## Version Release
 
-### Stable version
+### Stable Version
 
 Stable release versions are manually released from the main branch.
 
 ## Storybook
 
+To view the component library, run:
+
 ```console
 npm run storybook
+```
+
+## Usage
+
+Provide examples of how to use the library in a project. Include code snippets and explanations.
+
+```javascript
+import { ComponentName } from '@babylonlabs-io/bbn-core-ui';
+
+function App() {
+  return <ComponentName prop="value" />;
+}
 ```
