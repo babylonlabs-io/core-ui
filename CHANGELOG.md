@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.0.13
+
+### Patch Changes
+
+- 3c7ae5e: fix dialog subtitle
+
 ## 0.0.12
 
 ### Patch Changes
