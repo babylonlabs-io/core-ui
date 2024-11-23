@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.0.14
+
+### Patch Changes
+
+- c438940: fix dialog title
+
 ## 0.0.13
 
 ### Patch Changes
