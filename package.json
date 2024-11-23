@@ -31,7 +31,8 @@
     "release": "npm run build && changeset publish"
   },
   "files": [
-    "dist"
+    "dist",
+    "./tailwind.config.js"
   ],
   "peerDependencies": {
     "react": "^18.3.1",
