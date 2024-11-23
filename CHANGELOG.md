@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.0.11
+
+### Patch Changes
+
+- b572669: Add prefix to tailwind classname
+
 ## 0.0.10
 
 ### Patch Changes
