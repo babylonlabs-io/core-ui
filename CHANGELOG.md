@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.0.10
+
+### Patch Changes
+
+- ffbeac6: Add tailwind config to files
+
 ## 0.0.9
 
 ### Patch Changes
