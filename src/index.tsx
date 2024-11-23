@@ -1,5 +1,6 @@
 import "./index.css";
 
+export * from "./components/Accordion";
 export * from "./components/Text";
 export * from "./components/Heading";
 export * from "./components/Button";
