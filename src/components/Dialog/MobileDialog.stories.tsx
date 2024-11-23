@@ -40,12 +40,13 @@ export const Default: Story = {
           }}
         >
           <DialogHeader
+            title="Bitcoin Inscriptions"
             className="b-text-primary-main"
             onClose={() => {
               setVisibility(false);
             }}
           >
-            Bitcoin Inscriptions
+            <Text>Subtitle</Text>
           </DialogHeader>
 
           <DialogBody className="b-pb-8 b-pt-4 b-text-primary-dark">
