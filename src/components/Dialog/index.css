@@ -10,6 +10,10 @@
   }
 
   &-header {
+    @apply b-block;
+  }
+
+  &-title {
     @apply b-flex b-items-center b-justify-between b-gap-2;
   }
 
