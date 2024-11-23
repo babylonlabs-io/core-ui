@@ -10,8 +10,8 @@ export interface DialogHeaderProps extends DetailedHTMLProps<HTMLAttributes<HTML
 }
 
 export const DialogHeader = ({ className, children, title, onClose }: DialogHeaderProps) => (
-  <>
-    <div className={twJoin("bbn-dialog-header", className)}>
+  <div className={twJoin("bbn-dialog-header", className)}>
+    <div className="bbn-dialog-title">
       <Heading variant="h5">{title}</Heading>
 
       {Boolean(onClose) && (
@@ -27,5 +27,5 @@ export const DialogHeader = ({ className, children, title, onClose }: DialogHead
     </div>
 
     {children}
-  </>
+  </div>
 );
