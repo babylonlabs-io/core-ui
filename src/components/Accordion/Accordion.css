@@ -1,27 +1,27 @@
 .bbn-accordion {
-  @apply b-transition-opacity;
+  @apply transition-opacity;
 
   &-summary {
-    @apply b-cursor-pointer b-relative b-pr-5 b-transition-colors;
+    @apply cursor-pointer relative pr-5 transition-colors;
   }
 
   &-details {
-    @apply b-overflow-hidden b-transition-all;
+    @apply overflow-hidden transition-all;
   }
 
   &-content {
-    @apply b-flex b-w-full;
+    @apply flex w-full;
   }
 
   &-icon {
-    @apply b-absolute b-right-0 b-top-1/2 -b-translate-y-1/2 b-transition-transform b-duration-200;
+    @apply absolute right-0 top-1/2 -translate-y-1/2 transition-transform duration-200;
   }
 
   &-disabled {
-    @apply b-opacity-40;
+    @apply opacity-40;
 
     & .sup-accordion-summary {
-      @apply b-cursor-default;
+      @apply cursor-default;
     }
   }
 }
