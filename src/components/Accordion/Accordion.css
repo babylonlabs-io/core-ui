@@ -1,0 +1,27 @@
+.bbn-accordion {
+  @apply b-transition-opacity;
+
+  &-summary {
+    @apply b-cursor-pointer b-relative b-pr-5 b-transition-colors;
+  }
+
+  &-details {
+    @apply b-overflow-hidden b-transition-all;
+  }
+
+  &-content {
+    @apply b-flex b-w-full;
+  }
+
+  &-icon {
+    @apply b-absolute b-right-0 b-top-1/2 -b-translate-y-1/2 b-transition-transform b-duration-200;
+  }
+
+  &-disabled {
+    @apply b-opacity-40;
+
+    & .sup-accordion-summary {
+      @apply b-cursor-default;
+    }
+  }
+}
