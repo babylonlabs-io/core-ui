@@ -1,1 +1,10 @@
+#!/bin/sh
+
+# Ensure the script has access to the terminal for interactive prompts
+exec < /dev/tty
+
+# Run the promptChangeset script
+node scripts/promptChangeset.js
+
+# Continue with lint-staged
 npx lint-staged

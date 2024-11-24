@@ -8,9 +8,11 @@ We have a quick list of common questions to get you started engaging with this p
 [our documentation](https://github.com/changesets/changesets/blob/main/docs/common-questions.md)
 
 # Usage
-1. `npx changeset` to create a changeset
+1. Commit your changes as usual
 
-2. Select change type: 
+2. When you are ready to generate a changeset, input `Y` to generate a changeset. Otherwise, input `N` to skip.
+
+3. Select change type: 
 ```
 Major: 
 - Describes when to use a major change, focusing on breaking changes.
@@ -22,13 +24,13 @@ Patch:
 - Describes when to use a patch change, focusing on bug fixes and small improvements.
 ```
 
-3. Input Summary
-4. Confirm changeset
-5. Generated changeset is generated under .changeset dir
-6. Edit the file in .changeset for further details
-7. Commit change and push to Github
-8. Github Actions will automatically create a new PR named `Version Packages`
-9. After reviewing, merge the `Version Packages` PR on Github, the package version is then updated and published to npm.
+4. Input Summary
+5. Confirm changeset
+6. Generated changeset is generated under .changeset dir
+7. Edit the markdown file in .changeset for further details
+8. Commit change and push to Github
+9. Github Actions will automatically create a new PR named `Version Packages`
+10. After reviewing, merge the `Version Packages` PR on Github, the package version is then updated and published to npm.
 
 Notes:
 - The `Version Packages` is automatically updated with the latest changeset(s).
