@@ -1,5 +1,15 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.1.0
+
+### Minor Changes
+
+- b8827cd: add Accordion
+
+### Patch Changes
+
+- 021643a: Revert prefix change
+
 ## 0.0.14
 
 ### Patch Changes
