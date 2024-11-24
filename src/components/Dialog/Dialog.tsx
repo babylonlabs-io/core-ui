@@ -1,6 +1,5 @@
 import { type DetailedHTMLProps, type HTMLAttributes } from "react";
 import { twJoin } from "tailwind-merge";
-import "./Dialog.css";
 
 import { Portal } from "@/components/Portal";
 import { useModalManager } from "@/hooks/useModalManager";
