@@ -1,20 +1,20 @@
 .bbn {
   &-h1 {
-    @apply b-text-8xl b-leading-[7rem];
+    @apply text-8xl leading-[7rem];
   }
   &-h2 {
-    @apply b-text-6xl b-leading-[4.5rem];
+    @apply text-6xl leading-[4.5rem];
   }
   &-h3 {
-    @apply b-text-5xl b-leading-[3.5rem];
+    @apply text-5xl leading-[3.5rem];
   }
   &-h4 {
-    @apply b-text-[2.125rem] b-leading-[2.625rem] b-tracking-0.25;
+    @apply text-[2.125rem] leading-[2.625rem] tracking-0.25;
   }
   &-h5 {
-    @apply b-text-2xl;
+    @apply text-2xl;
   }
   &-h6 {
-    @apply b-text-xl b-leading-8 b-tracking-0.15;
+    @apply text-xl leading-8 tracking-0.15;
   }
 }

@@ -19,7 +19,7 @@ export const MobileDialog = ({ children, open = false, className, onClose, ...re
         {...restProps}
         className={twJoin(
           "bbn-dialog-mobile",
-          open ? "b-animate-mobile-modal-in" : "b-animate-mobile-modal-out",
+          open ? "animate-mobile-modal-in" : "animate-mobile-modal-out",
           className,
         )}
         onAnimationEnd={unmount}

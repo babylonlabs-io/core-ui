@@ -20,10 +20,10 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply b-bg-primary;
+    @apply bg-primary;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    @apply b-bg-primary;
+    @apply bg-primary;
   }
 }
