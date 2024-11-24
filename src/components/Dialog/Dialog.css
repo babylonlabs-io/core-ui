@@ -10,10 +10,6 @@
   }
 
   &-header {
-    @apply block;
-  }
-
-  &-title {
     @apply flex items-center justify-between gap-2;
   }
 

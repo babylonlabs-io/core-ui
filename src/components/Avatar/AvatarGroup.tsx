@@ -1,9 +1,8 @@
 import { type PropsWithChildren, Children, cloneElement, isValidElement } from "react";
-import { twJoin, extendTailwindMerge } from "tailwind-merge";
+import { twJoin, twMerge } from "tailwind-merge";
 import "./AvatarGroup.css";
 
 import { type AvatarProps, Avatar } from "./Avatar";
-const twMerge = extendTailwindMerge({ prefix: "b-" });
 
 export interface AvatarGroupProps extends PropsWithChildren, AvatarProps {
   max?: number;
