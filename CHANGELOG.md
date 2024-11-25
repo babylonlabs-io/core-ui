@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.1.1
+
+### Patch Changes
+
+- f9dd1cf: fix backdrop styles
+
 ## 0.1.0
 
 ### Minor Changes
