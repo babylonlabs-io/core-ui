@@ -1,5 +1,15 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.2.0
+
+### Minor Changes
+
+- ebb7166: add loader
+
+### Patch Changes
+
+- eaa9f75: add className prop to backdrop
+
 ## 0.1.1
 
 ### Patch Changes
