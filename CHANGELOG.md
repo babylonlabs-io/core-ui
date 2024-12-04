@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.3.1
+
+### Patch Changes
+
+- 6adf7b5: add missing table export
+
 ## 0.3.0
 
 ### Minor Changes
