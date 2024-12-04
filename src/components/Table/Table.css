@@ -1,0 +1,189 @@
+/* Table wrapper styles - controls scrolling behavior */
+.bbn-table-wrapper {
+  @apply relative h-full w-full overflow-auto;
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
+
+  /* Hide WebKit scrollbar */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Main table styles */
+.bbn-table {
+  @apply w-full border-separate border-spacing-0;
+
+  /* Header row styles */
+  &-header {
+    @apply sticky top-0 z-30 bg-secondary-contrast text-sm font-medium text-primary-light transition-shadow;
+    
+    tr {
+      @apply relative;
+    }
+
+    /* Header cell styles */
+    th {
+      @apply whitespace-nowrap px-6 py-3 transition-all border-b border-[#f9f9f9];
+      width: var(--column-width);
+      min-width: var(--column-width);
+      max-width: var(--column-width);
+
+      &:first-child {
+        @apply border-l;
+      }
+
+      &:last-child {
+        @apply border-r;
+      }
+    }
+
+    /* First header cell when fixed */
+    th:first-child.bbn-table-fixed {
+      @apply sticky left-0 z-30 bg-secondary-contrast;
+      width: fit-content;
+      min-width: max-content;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    &.scrolled-top {
+      @apply shadow-[0_2px_4px_rgba(0,0,0,0.05)];
+    }
+  }
+
+  /* Table body styles */
+  &-body {
+    /* Row styles */
+    tr {
+      @apply transition-colors;
+
+      td {
+        @apply border-b border-t border-[#f9f9f9];
+
+        &:first-child {
+          @apply border-l;
+        }
+
+        &:last-child {
+          @apply border-r;
+        }
+      }
+
+      &:hover td {
+        @apply bg-primary-contrast;
+      }
+
+      &.selected td {
+        @apply bg-primary-contrast border-secondary-main;
+      }
+    }
+
+    /* Odd row styles */
+    tr:nth-child(odd) {
+      @apply bg-[#F9F9F9];
+
+      &:hover {
+        @apply bg-primary-contrast;
+      }
+
+      td.bbn-table-cell-hover {
+        @apply bg-primary-contrast/50;
+      }
+
+      /* First cell when fixed in odd rows */
+      td:first-child.bbn-table-fixed {
+        @apply sticky left-0 z-20 bg-[#F9F9F9];
+        width: fit-content;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    /* Even row styles */
+    tr:nth-child(even) {
+      @apply bg-secondary-contrast;
+
+      &:hover {
+        @apply bg-primary-contrast;
+      }
+
+      td.bbn-table-cell-hover {
+        @apply bg-primary-contrast/50;
+      }
+
+      /* First cell when fixed in even rows */
+      td:first-child.bbn-table-fixed {
+        @apply sticky left-0 z-20 bg-secondary-contrast;
+        width: fit-content;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    /* Standard cell styles */
+    td {
+      @apply px-6 py-4 text-sm text-primary-light transition-colors;
+      width: var(--column-width);
+      min-width: var(--column-width);
+      max-width: var(--column-width);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  /* Sortable column styles */
+  &-sortable {
+    @apply cursor-pointer select-none;
+  }
+
+  /* Sort icons container */
+  &-sort-icons {
+    @apply ml-1 inline-flex flex-col;
+
+    svg {
+      @apply h-4 w-4;
+    }
+
+    /* Individual sort icon styles */
+    .bbn-sort-icon {
+      @apply text-primary/20 transition-colors;
+
+      &.bbn-sort-icon-up {
+        @apply -mb-1;
+      }
+
+      &.bbn-sort-icon-down {
+        @apply -mt-1;
+      }
+
+      &.bbn-sort-icon-active {
+        @apply !text-primary-light;
+      }
+
+      &.bbn-sort-icon-inactive {
+        @apply !text-primary/10;
+      }
+    }
+  }
+
+  /* Cell alignment styles */
+  &-cell {
+    &-right {
+      @apply text-right;
+    }
+
+    &-left {
+      @apply text-left;
+    }
+  }
+}
