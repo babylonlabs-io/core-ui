@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- c012efe: add table component
+
 ## 0.2.0
 
 ### Minor Changes
