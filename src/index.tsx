@@ -10,5 +10,6 @@ export * from "./components/Dialog";
 export * from "./components/Chip";
 export * from "./components/Portal";
 export * from "./components/Loader";
+export * from "./components/Table";
 
 export { ScrollLocker } from "@/context/Dialog.context";
