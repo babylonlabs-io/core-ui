@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.3.2
+
+### Patch Changes
+
+- 6f4c6b1: fix: loader
+
 ## 0.3.1
 
 ### Patch Changes
