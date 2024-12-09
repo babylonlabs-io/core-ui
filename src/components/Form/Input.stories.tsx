@@ -39,18 +39,14 @@ export const Error: Story = {
 export const WithSuffix: Story = {
   args: {
     placeholder: "Search...",
-    decorators: {
-      suffix: <RiSearchLine size={20} />,
-    },
+    suffix: <RiSearchLine size={20} />,
   },
 };
 
 export const WithPrefix: Story = {
   args: {
     placeholder: "Amount",
-    decorators: {
-      prefix: "$",
-    },
+    prefix: "$",
   },
 };
 
@@ -66,13 +62,11 @@ export const LoadingWithInteraction: Story = {
     return (
       <Input
         placeholder="Click search to see loading"
-        decorators={{
-          suffix: (
-            <button onClick={handleSearch} disabled={isLoading} className="h-5 w-5">
-              {isLoading ? <Loader size={20} /> : <RiSearchLine size={20} />}
-            </button>
-          ),
-        }}
+        suffix={
+          <button onClick={handleSearch} disabled={isLoading} className="h-5 w-5">
+            {isLoading ? <Loader size={20} /> : <RiSearchLine size={20} />}
+          </button>
+        }
         disabled={isLoading}
       />
     );
