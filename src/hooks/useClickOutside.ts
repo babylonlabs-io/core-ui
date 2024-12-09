@@ -1,29 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { useMemoizedArray } from "./useMemoizedArray";
 
-export const useClickOutside = <T extends HTMLElement>(onClose?: () => void, excludeRef?: RefObject<HTMLElement>) => {
-  const ref = useRef<T>(null);
+type TargetElement<E> = E | null | undefined;
+
+interface Options {
+  enabled?: boolean;
+}
+
+export function useClickOutside<E extends Element>(
+  targetElement: TargetElement<E> | TargetElement<E>[],
+  handler: () => void = () => null,
+  { enabled = true }: Options = {},
+) {
+  const targetElements = Array.isArray(targetElement) ? targetElement : [targetElement];
+  const memoizedElements = useMemoizedArray(targetElements);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (!onClose) return;
-
-      const target = event.target as Node;
-      const isOutside = ref.current && !ref.current.contains(target);
-      const isNotExcluded = !excludeRef?.current?.contains(target);
-
-      if (isOutside && isNotExcluded) {
-        onClose();
+      if (enabled && memoizedElements.every((element) => !element?.contains(event.target as Node))) {
+        handler();
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [onClose, excludeRef]);
 
-  return [
-    (node: T | null) => {
-      ref.current = node;
-    },
-    ref,
-  ] as const;
-};
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [memoizedElements, enabled, handler]);
+}

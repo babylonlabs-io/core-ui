@@ -1,73 +1,80 @@
 import {
+  type ReactNode,
+  type CSSProperties,
   forwardRef,
   useCallback,
   useRef,
   useMemo,
-  type DetailedHTMLProps,
-  type SelectHTMLAttributes,
-  type ReactNode,
-  useState,
+  useImperativeHandle,
 } from "react";
 import { twJoin } from "tailwind-merge";
 import { RiArrowDownSLine } from "react-icons/ri";
+
 import { Popover } from "@/components/Popover";
 import { useControlledState } from "@/hooks/useControlledState";
-import { usePopper } from "react-popper";
 import "./Select.css";
-import { usePopperUpdate } from "@/hooks/usePopperUpdate";
+import { useResizeObserver } from "@/hooks/useResizeObserver";
 
-export interface SelectOption {
+export type Value = string | number;
+
+export interface Option {
   value: string;
   label: string;
 }
-export interface SelectProps
-  extends Omit<
-    DetailedHTMLProps<SelectHTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-    "value" | "onChange" | "onSelect"
-  > {
-  options: SelectOption[];
-  open?: boolean;
-  defaultOpen?: boolean;
-  value?: string | number;
-  defaultValue?: string | number;
-  onOpen?: () => void;
-  onSelect?: (value: string | number) => void;
-  className?: string;
-  placeholder?: string;
-  selectWidth?: string;
-  menuWidth?: string;
+
+export interface SelectProps {
+  id?: string;
+  name?: string;
   disabled?: boolean;
-  renderSelected?: (option: SelectOption) => ReactNode;
+  defaultOpen?: boolean;
+  open?: boolean;
+  defaultValue?: Value;
+  value?: Value;
+  placeholder?: string;
+  options?: Option[];
+  style?: CSSProperties;
+  className?: string;
+  optionClassName?: string;
+  popoverClassName?: string;
+  onSelect?: (value: Value) => void;
+  onOpen?: () => void;
+  onClose?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  renderSelectedOption?: (option: Option) => ReactNode;
 }
+
+const defaultOptionRenderer = (option: Option) => option.label;
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
   (
     {
+      disabled,
       className,
-      options,
       value,
       defaultValue,
-      onOpen,
-      onSelect,
       placeholder = "Select option",
       open,
       defaultOpen,
-      selectWidth,
-      menuWidth,
-      disabled,
-      renderSelected,
+      options = [],
+      optionClassName,
+      popoverClassName,
+      onOpen,
+      onSelect,
+      onClose,
+      renderSelectedOption = defaultOptionRenderer,
       ...props
     },
     ref,
   ) => {
-    // refs
-    const triggerRef = useRef<HTMLDivElement>(null);
+    const anchorEl = useRef<HTMLDivElement>(null);
+    useImperativeHandle<HTMLDivElement | null, HTMLDivElement | null>(ref, () => anchorEl.current, []);
+    const { width } = useResizeObserver(anchorEl.current);
 
-    // state
     const [isOpen, setIsOpen] = useControlledState({
       value: open,
       defaultValue: defaultOpen,
-      onStateChange: onOpen,
+      onStateChange: (open) => void (open ? onOpen?.() : onClose?.()),
     });
 
     const [selectedValue, setSelectedValue] = useControlledState({
@@ -81,32 +88,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       [options, selectedValue],
     );
 
-    // popper
-    const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
-
-    const { styles, attributes, update } = usePopper(triggerRef.current, popperElement, {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4], // set offset to 4px on y axis
-          },
-        },
-      ],
-    });
-
-    // hook to update popper on resize
-    usePopperUpdate({
-      isOpen: Boolean(isOpen && !disabled),
-      triggerRef,
-      popperElement,
-      update,
-    });
-
-    // handlers
     const handleSelect = useCallback(
-      (option: SelectOption) => {
+      (option: Option) => {
         setSelectedValue(option.value);
         setIsOpen(false);
       },
@@ -117,47 +100,33 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       setIsOpen(false);
     }, [setIsOpen]);
 
-    const handleOpen = useCallback(() => {
-      if (!disabled) {
-        setIsOpen(true);
-        onOpen?.();
-      }
-    }, [disabled, setIsOpen, onOpen]);
-
     const handleClick = useCallback(() => {
-      if (!isOpen) {
-        handleOpen();
-      } else {
-        setIsOpen(false);
-      }
-    }, [isOpen, handleOpen, setIsOpen]);
+      if (disabled) return;
+
+      setIsOpen(!isOpen);
+    }, [isOpen, disabled, setIsOpen]);
 
     return (
-      <div className="bbn-select" ref={ref} style={{ width: selectWidth || "auto" }}>
+      <>
         <div
-          ref={triggerRef}
-          className={twJoin("bbn-select-trigger", disabled && "bbn-select-disabled", className)}
+          ref={anchorEl}
+          className={twJoin("bbn-select", disabled && "bbn-select-disabled", className)}
           onClick={handleClick}
           tabIndex={disabled ? -1 : 0}
           {...props}
         >
-          <span>
-            {selectedOption ? (renderSelected ? renderSelected(selectedOption) : selectedOption.label) : placeholder}
-          </span>
+          <span>{selectedOption ? renderSelectedOption(selectedOption) : placeholder}</span>
           <RiArrowDownSLine className={twJoin("bbn-select-icon", isOpen && "bbn-select-icon-open")} size={20} />
         </div>
 
         <Popover
-          ref={setPopperElement}
+          anchorEl={anchorEl.current}
+          className={twJoin("bbn-select-menu custom-scrollbar", popoverClassName)}
           open={isOpen && !disabled}
-          onClose={handleClose}
-          anchorRef={triggerRef}
-          className="bbn-select-menu"
-          style={{
-            ...styles.popper,
-            width: menuWidth || (triggerRef.current?.offsetWidth ? `${triggerRef.current.offsetWidth}px` : "auto"),
-          }}
-          {...attributes.popper}
+          onClickOutside={handleClose}
+          offset={[0, 4]} // set offset to 4px on y axis
+          placement="bottom-start"
+          style={{ width }}
         >
           {options.map((option) => (
             <div
@@ -165,6 +134,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
               className={twJoin(
                 "bbn-select-option",
                 selectedOption?.value === option.value && "bbn-select-option-selected",
+                optionClassName,
               )}
               onClick={() => handleSelect(option)}
             >
@@ -172,7 +142,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             </div>
           ))}
         </Popover>
-      </div>
+      </>
     );
   },
 );

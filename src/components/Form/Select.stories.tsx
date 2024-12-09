@@ -21,54 +21,51 @@ export const Default: Story = {
   args: {
     options,
     placeholder: "Select status",
+    onSelect: console.log,
   },
 };
 
 export const Controlled: Story = {
   args: {
+    defaultValue: "active",
     options,
     placeholder: "Select status",
-  },
-  render: (args) => {
-    return <Select {...args} defaultValue="active" />;
   },
 };
 
 export const CenterAligned: Story = {
   args: {
     options,
-    selectWidth: "200px",
+    placeholder: "Select status",
   },
   render: (args) => (
     <div className="flex w-full justify-center gap-1">
-      <Select {...args} placeholder="Select status" selectWidth={args.selectWidth} />
+      <Select {...args} />
     </div>
   ),
 };
 
 export const LeftAligned: Story = {
   args: {
+    placeholder: "Select status",
     options,
-    selectWidth: "200px",
-    menuWidth: "300px",
   },
   render: (args) => (
     <div className="flex w-full">
-      <Select {...args} placeholder="Select status" selectWidth={args.selectWidth} menuWidth={args.menuWidth} />
+      <Select {...args} />
     </div>
   ),
 };
 
 export const RightAligned: Story = {
   args: {
+    placeholder: "Select status",
     options,
-    selectWidth: "200px",
-    menuWidth: "300px",
   },
   render: (args) => (
     <div className="flex w-full justify-between gap-1">
       <div className="w-1/2">Title</div>
-      <Select {...args} placeholder="Select status" selectWidth={args.selectWidth} menuWidth={args.menuWidth} />
+      <Select {...args} />
     </div>
   ),
 };
@@ -85,6 +82,6 @@ export const CustomSelectedDisplay: Story = {
   args: {
     options,
     placeholder: "Select status",
-    renderSelected: (option) => `Showing ${option.value}`,
+    renderSelectedOption: (option) => `Showing ${option.value}`,
   },
 };
