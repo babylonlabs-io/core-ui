@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.4.0
+
+### Minor Changes
+
+- ed0911d: add input and select components
+
 ## 0.3.2
 
 ### Patch Changes
