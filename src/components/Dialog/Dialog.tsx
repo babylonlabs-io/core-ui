@@ -10,6 +10,7 @@ export interface DialogProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
   onClose?: () => void;
   hasBackdrop?: boolean;
   backdropClassName?: string;
+  dialogClassName?: string;
 }
 
 export const Dialog = ({
@@ -19,15 +20,16 @@ export const Dialog = ({
   onClose,
   hasBackdrop = true,
   backdropClassName,
+  dialogClassName,
   ...restProps
 }: DialogProps) => {
   const { mounted, unmount } = useModalManager({ open });
 
   return (
     <Portal mounted={mounted}>
-      <div {...restProps} className="bbn-dialog-wrapper">
+      <div {...restProps} className={twJoin("bbn-dialog-wrapper", className)}>
         <div
-          className={twJoin("bbn-dialog", open ? "animate-modal-in" : "animate-modal-out", className)}
+          className={twJoin("bbn-dialog", open ? "animate-modal-in" : "animate-modal-out", dialogClassName)}
           onAnimationEnd={unmount}
         >
           {children}
