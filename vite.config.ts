@@ -19,7 +19,7 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "tailwind-merge"],
+      external: ["react", "react-dom", "react/jsx-runtime", "tailwind-merge", "yup"],
       output: {
         sourcemapExcludeSources: true,
       },
