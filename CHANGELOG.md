@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.4.1
+
+### Patch Changes
+
+- 887dbe1: fix: add dialog className
+
 ## 0.4.0
 
 ### Minor Changes
