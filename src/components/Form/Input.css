@@ -36,20 +36,4 @@
   &-prefix {
     @apply mr-2 flex items-center text-primary-light/50;
   }
-
-  &-state-text {
-    @apply mt-1 text-sm;
-  }
-
-  &-state-text-error {
-    @apply text-error-main;
-  }
-
-  &-state-text-warning {
-    @apply text-warning-main;
-  }
-
-  &-state-text-success {
-    @apply text-success-main;
-  }
 } 

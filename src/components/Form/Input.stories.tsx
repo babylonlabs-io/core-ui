@@ -28,11 +28,11 @@ export const Disabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const WithError: Story = {
   args: {
     placeholder: "Input with error",
     state: "error",
-    stateText: "This field is required",
+    hint: "This field is required",
   },
 };
 

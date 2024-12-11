@@ -14,6 +14,7 @@ import { Popover } from "@/components/Popover";
 import { useControlledState } from "@/hooks/useControlledState";
 import "./Select.css";
 import { useResizeObserver } from "@/hooks/useResizeObserver";
+import { FormControl } from "./components/FormControl";
 
 export type Value = string | number;
 
@@ -36,12 +37,16 @@ export interface SelectProps {
   className?: string;
   optionClassName?: string;
   popoverClassName?: string;
+  wrapperClassName?: string;
+  state?: "default" | "error" | "warning";
+  hint?: string;
   onSelect?: (value: Value) => void;
   onOpen?: () => void;
   onClose?: () => void;
   onFocus?: () => void;
   onBlur?: () => void;
   renderSelectedOption?: (option: Option) => ReactNode;
+  label?: string;
 }
 
 const defaultOptionRenderer = (option: Option) => option.label;
@@ -51,6 +56,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     {
       disabled,
       className,
+      wrapperClassName,
       value,
       defaultValue,
       placeholder = "Select option",
@@ -63,6 +69,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       onSelect,
       onClose,
       renderSelectedOption = defaultOptionRenderer,
+      state = "default",
+      hint,
+      label,
       ...props
     },
     ref,
@@ -107,42 +116,44 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     }, [isOpen, disabled, setIsOpen]);
 
     return (
-      <>
-        <div
-          ref={anchorEl}
-          className={twJoin("bbn-select", disabled && "bbn-select-disabled", className)}
-          onClick={handleClick}
-          tabIndex={disabled ? -1 : 0}
-          {...props}
-        >
-          <span>{selectedOption ? renderSelectedOption(selectedOption) : placeholder}</span>
-          <RiArrowDownSLine className={twJoin("bbn-select-icon", isOpen && "bbn-select-icon-open")} size={20} />
-        </div>
+      <FormControl label={label} hint={hint} state={state} wrapperClassName={wrapperClassName}>
+        <div className={twJoin("bbn-select-container")}>
+          <div
+            ref={anchorEl}
+            className={twJoin("bbn-select", disabled && "bbn-select-disabled", `bbn-select-${state}`, className)}
+            onClick={handleClick}
+            tabIndex={disabled ? -1 : 0}
+            {...props}
+          >
+            <span>{selectedOption ? renderSelectedOption(selectedOption) : placeholder}</span>
+            <RiArrowDownSLine className={twJoin("bbn-select-icon", isOpen && "bbn-select-icon-open")} size={20} />
+          </div>
 
-        <Popover
-          anchorEl={anchorEl.current}
-          className={twJoin("bbn-select-menu custom-scrollbar", popoverClassName)}
-          open={isOpen && !disabled}
-          onClickOutside={handleClose}
-          offset={[0, 4]} // set offset to 4px on y axis
-          placement="bottom-start"
-          style={{ width }}
-        >
-          {options.map((option) => (
-            <div
-              key={option.value}
-              className={twJoin(
-                "bbn-select-option",
-                selectedOption?.value === option.value && "bbn-select-option-selected",
-                optionClassName,
-              )}
-              onClick={() => handleSelect(option)}
-            >
-              {option.label}
-            </div>
-          ))}
-        </Popover>
-      </>
+          <Popover
+            anchorEl={anchorEl.current}
+            className={twJoin("bbn-select-menu custom-scrollbar", popoverClassName)}
+            open={isOpen && !disabled}
+            onClickOutside={handleClose}
+            offset={[0, 4]}
+            placement="bottom-start"
+            style={{ width }}
+          >
+            {options.map((option) => (
+              <div
+                key={option.value}
+                className={twJoin(
+                  "bbn-select-option",
+                  selectedOption?.value === option.value && "bbn-select-option-selected",
+                  optionClassName,
+                )}
+                onClick={() => handleSelect(option)}
+              >
+                {option.label}
+              </div>
+            ))}
+          </Popover>
+        </div>
+      </FormControl>
     );
   },
 );

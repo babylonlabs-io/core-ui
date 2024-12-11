@@ -119,3 +119,65 @@ export const Default: Story = {
     );
   },
 };
+
+export const WithoutRowSelect: Story = {
+  render: () => {
+    const [tableData, setTableData] = useState(data.slice(0, 3));
+    const [loading, setLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+
+    const handleLoadMore = async () => {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      const nextItems = data.slice(tableData.length, tableData.length + 3);
+      setTableData((prev) => [...prev, ...nextItems]);
+      setHasMore(tableData.length + nextItems.length < data.length);
+      setLoading(false);
+    };
+
+    return (
+      <div className="h-[150px]">
+        <Table
+          data={tableData}
+          hasMore={hasMore}
+          loading={loading}
+          onLoadMore={handleLoadMore}
+          columns={[
+            {
+              key: "name",
+              header: "Finality Provider",
+              render: (_, row) => (
+                <div className="flex items-center gap-2">
+                  <Avatar size="small" url={row.icon} alt={row.name} />
+                  <span className="text-primary-light">{row.name}</span>
+                </div>
+              ),
+              sorter: (a, b) => a.name.localeCompare(b.name),
+            },
+            {
+              key: "status",
+              header: "Status",
+            },
+            {
+              key: "btcPk",
+              header: "BTC PK",
+            },
+            {
+              key: "totalDelegation",
+              header: "Total Delegation",
+              render: (value) => `${value} sBTC`,
+              sorter: (a, b) => a.totalDelegation - b.totalDelegation,
+            },
+            {
+              key: "commission",
+              header: "Commission",
+              render: (value) => `${value}%`,
+              sorter: (a, b) => a.commission - b.commission,
+            },
+          ]}
+        />
+      </div>
+    );
+  },
+};

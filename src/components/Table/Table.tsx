@@ -36,9 +36,10 @@ export function Table<T extends { id: string | number }>({
   };
 
   const handleRowSelect = (row: T) => {
+    if (!onRowSelect) return;
     if (selectedRow === row.id) return;
     setSelectedRow(row.id);
-    onRowSelect?.(row);
+    onRowSelect(row);
   };
 
   const handleColumnSort = (columnKey: string, sorter?: (a: T, b: T) => number) => {
@@ -127,7 +128,7 @@ export function Table<T extends { id: string | number }>({
             {sortedData.map((row) => (
               <tr
                 key={row.id}
-                className={twJoin(selectedRow === row.id && "selected", "cursor-pointer")}
+                className={twJoin(selectedRow === row.id && "selected", onRowSelect && "cursor-pointer")}
                 onClick={() => handleRowSelect(row)}
               >
                 {columns.map((column) => (
