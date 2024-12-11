@@ -13,4 +13,6 @@ export * from "./components/Loader";
 export * from "./components/Table";
 export * from "./components/Popover";
 
+export * from "./widgets/Form";
+
 export { ScrollLocker } from "@/context/Dialog.context";
