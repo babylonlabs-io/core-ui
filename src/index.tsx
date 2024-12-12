@@ -13,12 +13,12 @@ export * from "./components/Loader";
 export * from "./components/Table";
 export * from "./components/Popover";
 
-export * from "./widgets/inputs/Form";
-export * from "./widgets/inputs/NumberField";
-export * from "./widgets/inputs/TextField";
-export * from "./widgets/inputs/CheckboxField";
-export * from "./widgets/inputs/RadioField";
-export * from "./widgets/inputs/SelectField";
-export * from "./widgets/inputs/hooks";
+export * from "./widgets/form/Form";
+export * from "./widgets/form/NumberField";
+export * from "./widgets/form/TextField";
+export * from "./widgets/form/CheckboxField";
+export * from "./widgets/form/RadioField";
+export * from "./widgets/form/SelectField";
+export * from "./widgets/form/hooks";
 
 export { ScrollLocker } from "./context/Dialog.context";

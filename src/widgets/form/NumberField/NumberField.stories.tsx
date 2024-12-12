@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import * as yup from "yup";
 
 import { NumberField } from "./NumberField";
-import { Form } from "../Form";
+import { Form } from "@/widgets/form/Form";
 
 const meta: Meta<typeof NumberField> = {
   component: NumberField,

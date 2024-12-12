@@ -1,8 +1,8 @@
 import { ChangeEventHandler, ReactNode } from "react";
 
 import { FormControl, Input } from "@/components/Form";
-import type { FieldProps } from "../types";
-import { useField } from "../hooks";
+import type { FieldProps } from "@/widgets/form/types";
+import { useField } from "@/widgets/form/hooks";
 
 export interface NumberFieldProps extends FieldProps {
   type?: "text" | "hidden" | "number" | "password" | "tel" | "url" | "email";

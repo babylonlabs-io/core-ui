@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Form } from "../Form";
+import { Form } from "@/widgets/form/Form";
 
 import { RadioField } from "./RadioField";
 

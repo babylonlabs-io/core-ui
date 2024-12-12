@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
 import { type Option, FormControl, Select } from "@/components/Form";
-import type { FieldProps } from "../types";
-import { useField } from "../hooks";
+import type { FieldProps } from "@/widgets/form/types";
+import { useField } from "@/widgets/form/hooks";
 
 export interface SelectFieldProps extends FieldProps {
   open?: boolean;

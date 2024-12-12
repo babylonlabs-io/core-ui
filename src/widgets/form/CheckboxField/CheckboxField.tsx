@@ -1,5 +1,5 @@
 import { type CheckboxProps, Checkbox } from "@/components/Form/Checkbox";
-import { useField } from "../hooks";
+import { useField } from "@/widgets/form/hooks";
 
 export interface CheckboxFieldProps extends CheckboxProps {
   name: string;
