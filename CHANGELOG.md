@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.1
+
+### Patch Changes
+
+- fb1cd98: refactor form
+
 ## 0.6.0
 
 ### Minor Changes
