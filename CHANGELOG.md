@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.0
+
+### Minor Changes
+
+- 904d1a9: add Form widget
+
 ## 0.5.0
 
 ### Minor Changes
