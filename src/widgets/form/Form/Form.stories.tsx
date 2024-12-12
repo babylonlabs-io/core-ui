@@ -3,7 +3,7 @@ import * as yup from "yup";
 
 import { Form } from "./Form";
 
-import { useField } from "../hooks";
+import { useField } from "@/widgets/form/hooks";
 import { Input, FormControl } from "@/components/Form";
 
 const meta: Meta<typeof Form> = {
