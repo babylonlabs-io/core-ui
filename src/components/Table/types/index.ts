@@ -14,5 +14,6 @@ export interface TableProps<T extends { id: string | number }> {
   hasMore?: boolean;
   loading?: boolean;
   onLoadMore?: () => void;
-  onRowSelect?: (row: T) => void;
+  onRowSelect?: (row: T | null) => void;
+  isRowSelectable?: (row: T) => boolean;
 }
