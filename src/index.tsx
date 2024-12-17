@@ -20,5 +20,7 @@ export * from "./widgets/form/CheckboxField";
 export * from "./widgets/form/RadioField";
 export * from "./widgets/form/SelectField";
 export * from "./widgets/form/hooks";
+export * from "./widgets/form/hooks";
 
 export { ScrollLocker } from "./context/Dialog.context";
+export { useFormContext, useFormState, useWatch } from "react-hook-form";
