@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.2
+
+### Patch Changes
+
+- 9fcfef8: table improvement
+
 ## 0.6.1
 
 ### Patch Changes
