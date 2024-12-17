@@ -1,4 +1,4 @@
-import { useRef, useMemo, useState } from "react";
+import { useRef, useMemo, useState, useCallback } from "react";
 import { twJoin } from "tailwind-merge";
 import { useTableScroll } from "@/hooks/useTableScroll";
 import { TableContext, TableContextType } from "../../context/Table.context";
@@ -15,6 +15,7 @@ export function Table<T extends { id: string | number }>({
   loading = false,
   onLoadMore,
   onRowSelect,
+  isRowSelectable,
   ...restProps
 }: TableProps<T>) {
   const tableRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export function Table<T extends { id: string | number }>({
   const [sortStates, setSortStates] = useState<{
     [key: string]: { direction: "asc" | "desc" | null; priority: number };
   }>({});
-  const [selectedRow, setSelectedRow] = useState<string | number | undefined>(undefined);
+  const [selectedRow, setSelectedRow] = useState<string | number | null>(null);
 
   const { isScrolledTop } = useTableScroll(tableRef, {
     onLoadMore,
@@ -30,19 +31,32 @@ export function Table<T extends { id: string | number }>({
     loading,
   });
 
-  const handleHoveredColumn = (column: string) => {
-    if (hoveredColumn === column) return;
-    setHoveredColumn(column);
-  };
+  const handleHoveredColumn = useCallback(
+    (column: string) => {
+      if (hoveredColumn !== column) {
+        setHoveredColumn(column);
+      }
+    },
+    [hoveredColumn],
+  );
 
-  const handleRowSelect = (row: T) => {
-    if (!onRowSelect) return;
-    if (selectedRow === row.id) return;
-    setSelectedRow(row.id);
-    onRowSelect(row);
-  };
+  const handleRowSelect = useCallback(
+    (row: T) => {
+      if (!onRowSelect) return;
+      if (isRowSelectable && !isRowSelectable(row)) return;
+      if (selectedRow === row.id) {
+        setSelectedRow(null);
+        onRowSelect(null);
+        return;
+      }
 
-  const handleColumnSort = (columnKey: string, sorter?: (a: T, b: T) => number) => {
+      setSelectedRow(row.id);
+      onRowSelect(row);
+    },
+    [onRowSelect, isRowSelectable, selectedRow],
+  );
+
+  const handleColumnSort = useCallback((columnKey: string, sorter?: (a: T, b: T) => number) => {
     if (!sorter) return;
 
     setSortStates((prev) => {
@@ -73,7 +87,7 @@ export function Table<T extends { id: string | number }>({
         },
       };
     });
-  };
+  }, []);
 
   const sortedData = useMemo(() => {
     const activeSorters = Object.entries(sortStates)
@@ -125,22 +139,29 @@ export function Table<T extends { id: string | number }>({
             </tr>
           </thead>
           <tbody className="bbn-table-body">
-            {sortedData.map((row) => (
-              <tr
-                key={row.id}
-                className={twJoin(selectedRow === row.id && "selected", onRowSelect && "cursor-pointer")}
-                onClick={() => handleRowSelect(row)}
-              >
-                {columns.map((column) => (
-                  <Cell
-                    key={column.key}
-                    value={row[column.key as keyof T]}
-                    columnName={column.key}
-                    render={column.render ? (value) => column.render!(value, row) : undefined}
-                  />
-                ))}
-              </tr>
-            ))}
+            {sortedData.map((row) => {
+              const isSelectable = isRowSelectable ? isRowSelectable(row) : true;
+              return (
+                <tr
+                  key={row.id}
+                  className={twJoin(
+                    selectedRow === row.id && "selected",
+                    onRowSelect && isSelectable && "cursor-pointer",
+                    !isSelectable && "opacity-50",
+                  )}
+                  onClick={() => handleRowSelect(row)}
+                >
+                  {columns.map((column) => (
+                    <Cell
+                      key={column.key}
+                      value={row[column.key as keyof T]}
+                      columnName={column.key}
+                      render={column.render ? (value) => column.render!(value, row) : undefined}
+                    />
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
