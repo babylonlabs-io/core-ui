@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.4
+
+### Patch Changes
+
+- 95c9c58: add hidden field
+
 ## 0.6.3
 
 ### Patch Changes
