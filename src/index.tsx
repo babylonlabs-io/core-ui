@@ -19,6 +19,7 @@ export * from "./widgets/form/TextField";
 export * from "./widgets/form/CheckboxField";
 export * from "./widgets/form/RadioField";
 export * from "./widgets/form/SelectField";
+export * from "./widgets/form/HiddenField";
 export * from "./widgets/form/hooks";
 export * from "./widgets/form/hooks";
 
