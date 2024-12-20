@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     name: "hidden_field",
-    value: "test",
+    defaultValue: "test",
   },
   decorators: [
     (Story) => (
