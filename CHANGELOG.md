@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.5
+
+### Patch Changes
+
+- bd877ea: update number and hidden field
+
 ## 0.6.4
 
 ### Patch Changes
