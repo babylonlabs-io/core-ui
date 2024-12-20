@@ -51,7 +51,7 @@ export function NumberField({
     <FormControl label={label} className={controlClassName} state={fieldState} hint={fieldHint}>
       <Input
         inputMode="numeric"
-        pattern="d*"
+        pattern="^-?\d*\.?\d*$"
         ref={ref}
         value={value}
         id={id}
