@@ -64,10 +64,6 @@ function TableBase<T extends TableData>(
     [sortedData, columns, sortStates, hoveredColumn, handleColumnSort, handleRowSelect],
   );
 
-  const ColumnComponent = useMemo(() => {
-    return Column;
-  }, [columns]);
-
   return (
     <TableContext.Provider value={contextValue as TableContextType<unknown>}>
       <div ref={tableRef} className="bbn-table-wrapper">
@@ -75,9 +71,9 @@ function TableBase<T extends TableData>(
           <thead className={twJoin("bbn-table-header", isScrolledTop && "scrolled-top")}>
             <tr>
               {columns.map((column) => (
-                <ColumnComponent key={column.key} name={column.key} sorter={column.sorter}>
+                <Column key={column.key} name={column.key} sorter={column.sorter}>
                   {column.header}
-                </ColumnComponent>
+                </Column>
               ))}
             </tr>
           </thead>
