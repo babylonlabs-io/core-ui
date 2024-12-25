@@ -36,7 +36,7 @@ export function useTableSort<T>(data: T[], columns: ColumnProps<T>[]) {
   const sortedData = useMemo(() => {
     const activeSorters = Object.entries(sortStates)
       .filter(([, state]) => state.direction !== null)
-      .sort((a, b) => b[1].priority - a[1].priority)
+      .toSorted((a, b) => b[1].priority - a[1].priority)
       .map(([key, state]) => ({
         column: columns.find((col) => col.key === key),
         direction: state.direction,
@@ -45,7 +45,7 @@ export function useTableSort<T>(data: T[], columns: ColumnProps<T>[]) {
 
     if (activeSorters.length === 0) return data;
 
-    return [...data].sort((a, b) => {
+    return data.toSorted((a, b) => {
       for (const { column, direction } of activeSorters) {
         const result = column!.sorter!(a, b);
         if (result !== 0) return direction === "asc" ? result : -result;

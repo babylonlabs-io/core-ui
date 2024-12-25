@@ -15,6 +15,8 @@ import { useControlledState } from "@/hooks/useControlledState";
 import "./Select.css";
 import { useResizeObserver } from "@/hooks/useResizeObserver";
 
+type Value = string | number;
+
 export interface Option {
   value: string;
   label: string;
@@ -26,8 +28,8 @@ export interface SelectProps {
   disabled?: boolean;
   defaultOpen?: boolean;
   open?: boolean;
-  defaultValue?: string | number;
-  value?: string | number;
+  defaultValue?: Value;
+  value?: Value;
   placeholder?: string;
   options?: Option[];
   style?: CSSProperties;
@@ -35,7 +37,7 @@ export interface SelectProps {
   optionClassName?: string;
   popoverClassName?: string;
   state?: "default" | "error" | "warning";
-  onSelect?: (value: string | number) => void;
+  onSelect?: (value: Value) => void;
   onOpen?: () => void;
   onClose?: () => void;
   onFocus?: () => void;
