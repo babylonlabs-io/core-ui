@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.6
+
+### Patch Changes
+
+- cf18f32: add disabled styles for outlined button
+
 ## 0.6.5
 
 ### Patch Changes
