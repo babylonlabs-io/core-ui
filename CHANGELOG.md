@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.7
+
+### Patch Changes
+
+- 31708b8: controlled table component and performance improvement
+
 ## 0.6.6
 
 ### Patch Changes
