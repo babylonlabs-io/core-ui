@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.8
+
+### Patch Changes
+
+- 242e540: feat: validate field on mount
+
 ## 0.6.7
 
 ### Patch Changes
