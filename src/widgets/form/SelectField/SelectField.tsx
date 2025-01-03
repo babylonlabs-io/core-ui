@@ -33,6 +33,7 @@ export function SelectField({
   placeholder,
   shouldUnregister,
   state,
+  validateOnMount,
   onOpen,
   onClose,
   renderSelectedOption,
@@ -44,7 +45,7 @@ export function SelectField({
     invalid,
     onChange,
     onBlur,
-  } = useField({ name, defaultValue, autoFocus, shouldUnregister });
+  } = useField({ name, defaultValue, autoFocus, shouldUnregister, validateOnMount });
 
   const fieldState = invalid ? "error" : state;
   const fieldHint = invalid ? error : hint;

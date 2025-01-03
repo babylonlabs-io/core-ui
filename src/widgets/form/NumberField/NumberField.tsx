@@ -28,6 +28,7 @@ export function NumberField({
   prefix,
   shouldUnregister,
   state,
+  validateOnMount,
 }: NumberFieldProps) {
   const {
     ref,
@@ -36,7 +37,7 @@ export function NumberField({
     invalid,
     onChange,
     onBlur,
-  } = useField({ name, defaultValue, autoFocus, shouldUnregister });
+  } = useField({ name, defaultValue, autoFocus, shouldUnregister, validateOnMount });
 
   const fieldState = invalid ? "error" : state;
   const fieldHint = invalid ? error : hint;
