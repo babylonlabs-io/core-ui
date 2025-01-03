@@ -11,4 +11,5 @@ export interface FieldProps {
   hint?: string | JSX.Element;
   shouldUnregister?: boolean;
   state?: "default" | "error" | "warning";
+  validateOnMount?: boolean;
 }

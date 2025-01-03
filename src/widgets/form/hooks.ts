@@ -7,6 +7,7 @@ interface FieldProps<V> {
   disabled?: boolean;
   autoFocus?: boolean;
   shouldUnregister?: boolean;
+  validateOnMount?: boolean;
 }
 
 export function useField<V = string>({
@@ -15,16 +16,19 @@ export function useField<V = string>({
   disabled = false,
   autoFocus = false,
   shouldUnregister = false,
+  validateOnMount = true,
 }: FieldProps<V>) {
-  const { setFocus } = useFormContext();
+  const { setFocus, trigger } = useFormContext();
   const { field, fieldState } = useController({ name, defaultValue, disabled, shouldUnregister });
   const { invalid, isTouched, error } = fieldState;
 
   useEffect(() => {
-    if (autoFocus) {
+    if (validateOnMount) {
+      trigger(name, { shouldFocus: autoFocus });
+    } else if (autoFocus) {
       setFocus(name);
     }
-  }, [name]);
+  }, [name, validateOnMount]);
 
   return {
     ...field,

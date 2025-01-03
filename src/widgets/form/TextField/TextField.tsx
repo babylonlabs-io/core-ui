@@ -26,6 +26,7 @@ export function TextField({
   prefix,
   shouldUnregister,
   state,
+  validateOnMount,
 }: TextFieldProps) {
   const {
     ref,
@@ -34,7 +35,7 @@ export function TextField({
     invalid,
     onChange,
     onBlur,
-  } = useField({ name, defaultValue, autoFocus, shouldUnregister });
+  } = useField({ name, defaultValue, autoFocus, shouldUnregister, validateOnMount });
 
   const fieldState = invalid ? "error" : state;
   const fieldHint = invalid ? error : hint;
