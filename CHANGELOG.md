@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.9
+
+### Patch Changes
+
+- 990ed80: add error message for hidden field
+
 ## 0.6.8
 
 ### Patch Changes
