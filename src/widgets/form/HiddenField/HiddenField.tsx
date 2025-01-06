@@ -7,19 +7,22 @@ export interface HiddenFieldProps extends FieldProps {
 }
 
 export function HiddenField({ displayError = false, ...props }: HiddenFieldProps) {
-  const { invalid, error, value, onChange, onBlur, disabled, name, ref } = useField(props);
+  const { error, value, onChange, onBlur, disabled, name, ref } = useField(props);
 
-  const fieldState = invalid && displayError ? "error" : "default";
-  const fieldHint = invalid && displayError ? error : "";
   const input = (
     <input ref={ref} type="hidden" name={name} disabled={disabled} value={value} onChange={onChange} onBlur={onBlur} />
   );
 
-  return displayError ? (
-    <FormControl hint={fieldHint} state={fieldState}>
-      {input}
-    </FormControl>
-  ) : (
-    input
-  );
+  if (displayError) {
+    const fieldState = displayError ? "error" : "default";
+    const fieldHint = displayError ? error : "";
+
+    return (
+      <FormControl hint={fieldHint} state={fieldState}>
+        {input}
+      </FormControl>
+    );
+  }
+
+  return input;
 }
