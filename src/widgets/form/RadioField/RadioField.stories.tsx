@@ -14,11 +14,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    name: "radio_field",
-    value: "test",
-    label: "Radio field",
-  },
   decorators: [
     (Story) => (
       <Form onChange={console.log}>
@@ -26,4 +21,11 @@ export const Default: Story = {
       </Form>
     ),
   ],
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <RadioField name="radio_filed" value="test" label="Test" />
+      <RadioField defaultChecked name="radio_filed" value="test1" label="Test 1" />
+      <RadioField name="radio_filed" value="test2" label="Test 2" />
+    </div>
+  ),
 };
