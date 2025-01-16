@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.7.0
+
+### Minor Changes
+
+- a7b3785: add Card component
+
 ## 0.6.11
 
 ### Patch Changes
