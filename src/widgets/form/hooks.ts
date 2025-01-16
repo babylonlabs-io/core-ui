@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useController, useFormContext } from "react-hook-form";
+import { type FieldError, useController, useFormContext, useFormState } from "react-hook-form";
 
 interface FieldProps<V> {
   name: string;
@@ -36,4 +36,25 @@ export function useField<V = string>({
     invalid: invalid && isTouched,
     error: error?.message ?? "",
   };
+}
+
+type FieldState = {
+  invalid: boolean;
+  isDirty: boolean;
+  isTouched: boolean;
+  isValidating: boolean;
+  error?: FieldError;
+};
+
+export function useFieldState(field: string): FieldState;
+export function useFieldState(field: string[]): FieldState[];
+export function useFieldState(field: string | string[]): FieldState | FieldState[] {
+  const { getFieldState } = useFormContext();
+  const formState = useFormState({ name: field });
+
+  const fieldState = Array.isArray(field)
+    ? field.map((fieldName) => getFieldState(fieldName, formState))
+    : getFieldState(field, formState);
+
+  return fieldState;
 }
