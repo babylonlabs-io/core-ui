@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.7.1
+
+### Patch Changes
+
+- 12b8259: add useFieldState hook
+
 ## 0.7.0
 
 ### Minor Changes
