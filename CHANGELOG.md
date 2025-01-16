@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.6.11
+
+### Patch Changes
+
+- e0a7b2d: feat: improve radio field
+
 ## 0.6.10
 
 ### Patch Changes
