@@ -12,6 +12,7 @@ export * from "./components/Portal";
 export * from "./components/Loader";
 export * from "./components/Table";
 export * from "./components/Popover";
+export * from "./components/Card";
 
 export * from "./widgets/form/Form";
 export * from "./widgets/form/NumberField";
