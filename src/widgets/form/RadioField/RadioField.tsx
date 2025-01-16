@@ -1,5 +1,5 @@
 import { type RadioProps, Radio } from "@/components/Form/Radio";
-import { useFormContext } from "react-hook-form";
+import { useField } from "@/widgets/form/hooks";
 
 export interface RadioFieldProps extends RadioProps {
   name: string;
@@ -17,19 +17,23 @@ export function RadioField({
   labelClassName,
   orientation,
 }: RadioFieldProps) {
-  const { register } = useFormContext();
-  const { name: inputName, ref, onChange, onBlur } = register(name);
+  const {
+    ref,
+    value: selectedValue,
+    onChange,
+    onBlur,
+  } = useField({ name, disabled, defaultValue: defaultChecked ? value : undefined });
 
   return (
     <Radio
       ref={ref}
-      name={inputName}
+      name={name}
       id={id}
       label={label}
       className={className}
       disabled={disabled}
+      checked={selectedValue === value}
       value={value}
-      defaultChecked={defaultChecked}
       labelClassName={labelClassName}
       orientation={orientation}
       inputProps={{ onChange, onBlur }}
