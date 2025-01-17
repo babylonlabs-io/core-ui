@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.7.3
+
+### Patch Changes
+
+- 4baba21: add wrapper classname for Table component
+
 ## 0.7.2
 
 ### Patch Changes
