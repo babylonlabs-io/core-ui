@@ -20,17 +20,14 @@
   /* Header row styles */
   &-header {
     @apply sticky top-0 z-30 bg-secondary-contrast text-sm font-medium text-primary-light transition-shadow;
-    
+
     tr {
       @apply relative;
     }
 
     /* Header cell styles */
     th {
-      @apply whitespace-nowrap px-6 py-3 transition-all border-b border-[#f9f9f9];
-      width: var(--column-width);
-      min-width: var(--column-width);
-      max-width: var(--column-width);
+      @apply whitespace-nowrap border-b border-[#f9f9f9] px-6 py-3 transition-all;
 
       &:first-child {
         @apply border-l;
@@ -50,7 +47,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    
+
     &.scrolled-top {
       @apply shadow-[0_2px_4px_rgba(0,0,0,0.05)];
     }
@@ -79,7 +76,7 @@
       }
 
       &.selected td {
-        @apply bg-primary-contrast border-secondary-main;
+        @apply border-secondary-main bg-primary-contrast;
       }
     }
 
@@ -132,9 +129,6 @@
     /* Standard cell styles */
     td {
       @apply px-6 py-4 text-sm text-primary-light transition-colors;
-      width: var(--column-width);
-      min-width: var(--column-width);
-      max-width: var(--column-width);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 export type ColumnProps<T = unknown> = {
   key: string;
   header: string;
+  headerClassName?: string;
+  cellClassName?: string;
   render?: (value: unknown, row: T) => ReactNode;
   sorter?: (a: T, b: T) => number;
 };
