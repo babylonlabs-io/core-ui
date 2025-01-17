@@ -14,6 +14,7 @@ function TableBase<T extends TableData>(
     data,
     columns,
     className,
+    wrapperClassName,
     hasMore = false,
     loading = false,
     onLoadMore,
@@ -66,7 +67,7 @@ function TableBase<T extends TableData>(
 
   return (
     <TableContext.Provider value={contextValue as TableContextType<unknown>}>
-      <div ref={tableRef} className="bbn-table-wrapper">
+      <div ref={tableRef} className={twJoin("bbn-table-wrapper", wrapperClassName)}>
         <table className={twJoin("bbn-table", className)} {...restProps}>
           <thead className={twJoin("bbn-table-header", isScrolledTop && "scrolled-top")}>
             <tr>

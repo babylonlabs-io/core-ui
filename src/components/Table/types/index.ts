@@ -15,6 +15,7 @@ export type TableProps<T extends TableData> = ControlledTableProps & {
   data: T[];
   columns: ColumnProps<T>[];
   className?: string;
+  wrapperClassName?: string;
   hasMore?: boolean;
   loading?: boolean;
   onLoadMore?: () => void;
