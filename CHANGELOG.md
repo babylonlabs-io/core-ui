@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.7.2
+
+### Patch Changes
+
+- 5bf7ceb: add cell class names to table component
+
 ## 0.7.1
 
 ### Patch Changes
