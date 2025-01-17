@@ -29,6 +29,7 @@ export function Row<T extends { id: string | number }>({
           key={column.key}
           value={row[column.key as keyof T]}
           columnName={column.key}
+          className={column.cellClassName}
           render={column.render ? (value) => column.render!(value, row) : undefined}
         />
       ))}
