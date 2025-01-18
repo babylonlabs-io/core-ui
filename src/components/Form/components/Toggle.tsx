@@ -3,6 +3,7 @@ import {
   type DetailedHTMLProps,
   type FocusEventHandler,
   type HTMLAttributes,
+  type JSX,
   forwardRef,
 } from "react";
 import { twJoin } from "tailwind-merge";
@@ -14,7 +15,7 @@ import { useControlledState } from "@/hooks/useControlledState";
 export interface ToggleProps {
   id?: string;
   name?: string;
-  label?: string;
+  label?: string | JSX.Element;
   inputType: "radio" | "checkbox";
   orientation?: "left" | "right";
   value?: string;
