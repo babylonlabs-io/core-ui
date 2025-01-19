@@ -1,6 +1,6 @@
 /* Table wrapper styles - controls scrolling behavior */
 .bbn-table-wrapper {
-  @apply relative h-full w-full overflow-auto;
+  @apply relative overflow-auto;
 
   /* Hide scrollbar for Firefox */
   scrollbar-width: none;
@@ -15,39 +15,21 @@
 
 /* Main table styles */
 .bbn-table {
-  @apply w-full border-separate border-spacing-0;
+  @apply border-separate border-spacing-0;
 
   /* Header row styles */
   &-header {
-    @apply sticky top-0 z-30 bg-secondary-contrast text-sm font-medium text-primary-light transition-shadow;
+    @apply bg-surface text-accent-secondary sticky top-0 z-30 transition-shadow;
 
     tr {
       @apply relative;
     }
 
-    /* Header cell styles */
     th {
-      @apply whitespace-nowrap border-b border-[#f9f9f9] px-6 py-3 transition-all;
-
-      &:first-child {
-        @apply border-l;
-      }
-
-      &:last-child {
-        @apply border-r;
-      }
+      @apply whitespace-nowrap px-6 py-3 transition-all;
     }
 
-    /* First header cell when fixed */
-    th:first-child.bbn-table-fixed {
-      @apply sticky left-0 z-30 bg-secondary-contrast;
-      width: fit-content;
-      min-width: max-content;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
+    /* TODO: fix shadow color */
     &.scrolled-top {
       @apply shadow-[0_2px_4px_rgba(0,0,0,0.05)];
     }
@@ -60,7 +42,7 @@
       @apply transition-colors;
 
       td {
-        @apply border-b border-t border-[#f9f9f9];
+        @apply border-b border-t;
 
         &:first-child {
           @apply border-l;
@@ -71,64 +53,49 @@
         }
       }
 
-      &:hover td {
-        @apply bg-primary-contrast;
-      }
-
       &.selected td {
-        @apply border-secondary-main bg-primary-contrast;
+        @apply !border-secondary-main;
       }
     }
 
     /* Odd row styles */
     tr:nth-child(odd) {
-      @apply bg-[#F9F9F9];
+      @apply bg-surface;
+
+      td {
+        @apply border-surface;
+      }
 
       &:hover {
-        @apply bg-primary-contrast;
-      }
+        td {
+          @apply border-neutral-200;
+        }
 
-      td.bbn-table-cell-hover {
-        @apply bg-primary-contrast/50;
-      }
-
-      /* First cell when fixed in odd rows */
-      td:first-child.bbn-table-fixed {
-        @apply sticky left-0 z-20 bg-[#F9F9F9];
-        width: fit-content;
-        min-width: max-content;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        @apply bg-neutral-200;
       }
     }
 
     /* Even row styles */
     tr:nth-child(even) {
-      @apply bg-secondary-contrast;
+      @apply bg-neutral-100;
+
+      td {
+        @apply border-neutral-100;
+      }
 
       &:hover {
-        @apply bg-primary-contrast;
-      }
+        td {
+          @apply border-neutral-200;
+        }
 
-      td.bbn-table-cell-hover {
-        @apply bg-primary-contrast/50;
-      }
-
-      /* First cell when fixed in even rows */
-      td:first-child.bbn-table-fixed {
-        @apply sticky left-0 z-20 bg-secondary-contrast;
-        width: fit-content;
-        min-width: max-content;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        @apply bg-neutral-200;
       }
     }
 
     /* Standard cell styles */
     td {
-      @apply px-6 py-4 text-sm text-primary-light transition-colors;
+      @apply text-accent-primary px-6 py-4 transition-colors;
+
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -138,6 +105,10 @@
   /* Sortable column styles */
   &-sortable {
     @apply cursor-pointer select-none;
+
+    &:hover {
+      @apply text-accent-primary bg-neutral-200;
+    }
   }
 
   /* Sort icons container */
@@ -150,7 +121,7 @@
 
     /* Individual sort icon styles */
     .bbn-sort-icon {
-      @apply text-primary/20 transition-colors;
+      @apply text-accent-primary transition-colors;
 
       &.bbn-sort-icon-up {
         @apply -mb-1;
@@ -161,11 +132,11 @@
       }
 
       &.bbn-sort-icon-active {
-        @apply !text-primary-light;
+        @apply !text-accent-secondary;
       }
 
       &.bbn-sort-icon-inactive {
-        @apply !text-primary/10;
+        @apply !text-accent-primary/10;
       }
     }
   }

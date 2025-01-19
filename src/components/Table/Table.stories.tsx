@@ -52,6 +52,24 @@ const data: FinalityProvider[] = [
     totalDelegation: 30,
     commission: 5,
   },
+  {
+    id: "4",
+    name: "Solv Protocol",
+    icon: "/images/fps/solv.jpeg",
+    status: "Active",
+    btcPk: "1234...4321",
+    totalDelegation: 20,
+    commission: 3,
+  },
+  {
+    id: "5",
+    name: "PumpBTC",
+    icon: "/images/fps/pumpbtc.jpeg",
+    status: "Active",
+    btcPk: "1234...4321",
+    totalDelegation: 30,
+    commission: 5,
+  },
 ];
 
 const columns: ColumnProps<FinalityProvider>[] = [
@@ -90,7 +108,7 @@ const columns: ColumnProps<FinalityProvider>[] = [
 
 export const Default: Story = {
   render: () => {
-    const [tableData, setTableData] = useState(data.slice(0, 3));
+    const [tableData, setTableData] = useState(data);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
     const [selectedProvider, setSelectedProvider] = useState<FinalityProvider | null>(null);
@@ -115,7 +133,7 @@ export const Default: Story = {
 
     return (
       <div className="space-y-4">
-        <div className="h-[150px]">
+        <div>
           <Table
             data={tableData}
             hasMore={hasMore}

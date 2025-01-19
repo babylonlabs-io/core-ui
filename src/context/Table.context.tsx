@@ -10,8 +10,6 @@ export interface TableContextType<T = unknown> {
       priority: number;
     };
   };
-  hoveredColumn?: string;
-  onColumnHover?: (column: string | undefined) => void;
   onColumnSort?: (columnKey: string, sorter?: (a: T, b: T) => number) => void;
   onRowSelect?: (row: T) => void;
 }
@@ -20,8 +18,6 @@ export const TableContext = createContext<TableContextType<unknown>>({
   data: [],
   columns: [],
   sortStates: {},
-  hoveredColumn: undefined,
-  onColumnHover: undefined,
   onColumnSort: undefined,
   onRowSelect: undefined,
 });

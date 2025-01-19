@@ -1,6 +1,7 @@
-import { type PropsWithChildren, type HTMLAttributes, useContext, type ReactNode } from "react";
+import { type PropsWithChildren, type HTMLAttributes, type ReactNode } from "react";
 import { twJoin } from "tailwind-merge";
-import { TableContext } from "../../../context/Table.context";
+
+import { Text } from "@/components/Text";
 
 interface CellProps {
   className?: string;
@@ -16,15 +17,15 @@ export function Cell({
   columnName,
   ...restProps
 }: PropsWithChildren<CellProps & HTMLAttributes<HTMLTableCellElement>>) {
-  const { hoveredColumn } = useContext(TableContext);
-
   return (
-    <td
-      className={twJoin(`bbn-cell-left`, columnName === hoveredColumn && "bbn-table-cell-hover", className)}
+    <Text
+      variant="body2"
+      as="td"
+      className={twJoin(`bbn-cell-left`, className)}
       data-column={columnName}
       {...restProps}
     >
       {render ? render(value) : (value as ReactNode)}
-    </td>
+    </Text>
   );
 }
