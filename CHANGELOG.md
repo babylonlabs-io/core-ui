@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.8.0
+
+### Minor Changes
+
+- db3eefb: dark mode
+
 ## 0.7.4
 
 ### Patch Changes
