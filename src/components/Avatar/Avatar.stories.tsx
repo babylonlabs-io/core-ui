@@ -20,7 +20,7 @@ export const Image: Story = {
 
 export const Text: Story = {
   args: {
-    className: "bg-primary text-primary-contrast",
+    className: "bg-surface text-accent-contrast",
     children: "DT",
   },
 };

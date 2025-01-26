@@ -16,7 +16,7 @@ export const Default: Story = {
     args.variant ? (
       <Text {...args}>Text--{args.variant}</Text>
     ) : (
-      <div className="text-primary">
+      <div className="text-accent-secondary">
         <Text {...args} variant="body1" className="my-4">
           Text--Body1
         </Text>

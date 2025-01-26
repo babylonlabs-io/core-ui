@@ -42,7 +42,7 @@ export const Default: Story = {
         >
           <DialogHeader
             title="Bitcoin Inscriptions"
-            className="text-primary-main"
+            className="text-accent-primary"
             onClose={() => {
               setVisibility(false);
             }}
@@ -50,7 +50,7 @@ export const Default: Story = {
             <Text>Subtitle</Text>
           </DialogHeader>
 
-          <DialogBody className="pb-8 pt-4 text-primary-dark">
+          <DialogBody className="pb-8 pt-4 text-accent-primary">
             <Text className="mb-6" variant="body1">
               This staking interface attempts to detect bitcoin ordinals, NFTs, Ruins, and other inscriptions
               (“Inscriptions”) within the Unspent Transaction Outputs (“UTXOs”) in your wallet. If you stake bitcoin

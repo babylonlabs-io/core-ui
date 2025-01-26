@@ -1,12 +1,12 @@
 .bbn-toggle {
-  @apply relative block transition-colors duration-200;
+  @apply relative block transition-all duration-200;
 
   &:not(&-disabled) {
-    @apply text-primary-light hover:text-primary-main;
+    @apply text-secondary-strokeDark hover:brightness-90;
   }
 
   &-disabled {
-    @apply text-primary/12;
+    @apply text-secondary-strokeDark/50;
   }
 }
 
@@ -23,7 +23,7 @@
 }
 
 .bbn-toggle-label {
-  @apply inline-flex items-center gap-4;
+  @apply text-accent-primary inline-flex items-center gap-4;
 }
 
 .bbn-toggle-left {

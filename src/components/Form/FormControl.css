@@ -2,11 +2,11 @@
   @apply flex flex-col;
 
   &-title {
-    @apply mb-2 flex items-center text-sm text-primary-light;
+    @apply text-accent-secondary mb-2 flex items-center text-sm;
   }
 
   &-hint {
-    @apply mt-1 text-sm;
+    @apply text-accent-secondary mt-1 text-sm;
 
     &.bbn-form-control-hint-error {
       @apply text-error-main;

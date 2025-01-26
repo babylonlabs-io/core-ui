@@ -1,4 +1,4 @@
-import { useRef, useMemo, useState, useCallback, forwardRef, useImperativeHandle } from "react";
+import { useRef, useMemo, useCallback, forwardRef, useImperativeHandle } from "react";
 import { twJoin } from "tailwind-merge";
 import { useTableScroll } from "@/hooks/useTableScroll";
 import { TableContext, TableContextType } from "../../context/Table.context";
@@ -32,7 +32,6 @@ function TableBase<T extends TableData>(
   const tableRef = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => tableRef.current!, []);
 
-  const [hoveredColumn, setHoveredColumn] = useState<string | undefined>(undefined);
   const { sortStates, handleColumnSort, sortedData } = useTableSort(data, columns);
   const { isScrolledTop } = useTableScroll(tableRef, { onLoadMore, hasMore, loading });
 
@@ -57,12 +56,10 @@ function TableBase<T extends TableData>(
       data: sortedData,
       columns,
       sortStates,
-      hoveredColumn,
-      onColumnHover: setHoveredColumn,
       onColumnSort: handleColumnSort,
       onRowSelect: handleRowSelect,
     }),
-    [sortedData, columns, sortStates, hoveredColumn, handleColumnSort, handleRowSelect],
+    [sortedData, columns, sortStates, handleColumnSort, handleRowSelect],
   );
 
   return (
