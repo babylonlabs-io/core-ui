@@ -91,6 +91,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@popperjs/core": "^2.11.8",
+    "motion": "^12.0.5",
     "react-hook-form": "^7.54.0",
     "react-popper": "^2.3.0",
     "tw-colors": "^3.3.2"
