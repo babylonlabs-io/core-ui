@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.9.0
+
+### Minor Changes
+
+- ba32d67: feat: toggle
+
 ## 0.8.0
 
 ### Minor Changes
