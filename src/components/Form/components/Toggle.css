@@ -1,4 +1,4 @@
-.bbn-toggle {
+.bbn-switcher {
   @apply relative block transition-all duration-200;
 
   &:not(&-disabled) {
@@ -10,7 +10,7 @@
   }
 }
 
-.bbn-toggle-input {
+.bbn-switcher-input {
   @apply absolute inset-0 z-[1] opacity-0;
 
   &:not(:disabled) {
@@ -22,18 +22,18 @@
   }
 }
 
-.bbn-toggle-label {
+.bbn-switcher-label {
   @apply text-accent-primary inline-flex items-center gap-4;
 }
 
-.bbn-toggle-left {
-  &.bbn-toggle-label {
+.bbn-switcher-left {
+  &.bbn-switcher-label {
     @apply flex-row;
   }
 }
 
-.bbn-toggle-right {
-  &.bbn-toggle-label {
+.bbn-switcher-right {
+  &.bbn-switcher-label {
     @apply flex-row-reverse;
   }
 }
