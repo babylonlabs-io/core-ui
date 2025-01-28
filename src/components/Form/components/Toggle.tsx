@@ -65,14 +65,14 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
   }
 
   const toggle = (
-    <span className={twJoin("bbn-toggle", disabled && "bbn-toggle-disabled", className)}>
+    <span className={twJoin("bbn-switcher", disabled && "bbn-switcher-disabled", className)}>
       {renderIcon(checkedState)}
 
       <input
         ref={ref}
         type={inputType}
         disabled={disabled}
-        className="bbn-toggle-input"
+        className="bbn-switcher-input"
         {...restProps}
         {...inputProps}
         checked={checkedState}
@@ -87,8 +87,8 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
         as="label"
         variant="body1"
         className={twJoin(
-          "bbn-toggle-label",
-          orientation === "left" ? "bbn-toggle-left" : "bbn-toggle-right",
+          "bbn-switcher-label",
+          orientation === "left" ? "bbn-switcher-left" : "bbn-switcher-right",
           labelClassName,
         )}
       >
