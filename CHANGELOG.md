@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.9.1
+
+### Patch Changes
+
+- 98585ca: fix: fix mobile dialog
+
 ## 0.9.0
 
 ### Minor Changes
