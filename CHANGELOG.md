@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.9.2
+
+### Patch Changes
+
+- 41f308a: fix: custom scrollbar
+
 ## 0.9.1
 
 ### Patch Changes
