@@ -2,7 +2,7 @@
   @apply transition-opacity;
 
   &-summary {
-    @apply text-accent-primary relative cursor-pointer pr-5 transition-colors;
+    @apply text-accent-primary relative cursor-pointer pr-10 transition-colors;
   }
 
   &-details {
