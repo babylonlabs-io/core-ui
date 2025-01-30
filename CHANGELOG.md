@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.9.3
+
+### Patch Changes
+
+- 23447ff: fix: accordion mobile layout
+
 ## 0.9.2
 
 ### Patch Changes
