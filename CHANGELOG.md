@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.10.1
+
+### Patch Changes
+
+- 691311f: add adaptive orientation to List component
+
 ## 0.10.0
 
 ### Minor Changes
