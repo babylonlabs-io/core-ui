@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.10.0
+
+### Minor Changes
+
+- 8981de4: List component
+
 ## 0.9.3
 
 ### Patch Changes
