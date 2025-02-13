@@ -5,16 +5,18 @@ import { type ListItemProps, ListItem } from "./components/ListItem";
 
 export interface ListProps {
   className?: string;
-  orientation: "horizontal" | "vertical";
+  orientation: "adaptive" | "horizontal" | "vertical";
   children: ReactElement<ListItemProps, typeof ListItem> | ReactElement<ListItemProps, typeof ListItem>[];
 }
 
 const STYLES = {
+  adaptive: "px-4 md:flex md:py-3",
   horizontal: "flex py-3",
   vertical: "px-4",
 };
 
 const ROW_ORIENTATION = {
+  adaptive: "adaptive",
   horizontal: "vertical",
   vertical: "horizontal",
 } as const;
