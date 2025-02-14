@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.10.2
+
+### Patch Changes
+
+- 5fab948: replace tw classes with custom ones
+
 ## 0.10.1
 
 ### Patch Changes
