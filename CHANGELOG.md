@@ -1,5 +1,11 @@
 # @babylonlabs-io/bbn-core-ui
 
+## 0.10.3
+
+### Patch Changes
+
+- e0eed30: fix: number input
+
 ## 0.10.2
 
 ### Patch Changes
