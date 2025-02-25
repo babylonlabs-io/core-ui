@@ -1,5 +1,11 @@
 # @babylonlabs-io/core-ui
 
+## 0.11.0
+
+### Minor Changes
+
+- 8a90006: rename lib
+
 ## 0.10.3
 
 ### Patch Changes
