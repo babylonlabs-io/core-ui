@@ -1,4 +1,4 @@
-# @babylonlabs-io/bbn-core-ui
+# @babylonlabs-io/core-ui
 
 ## 0.10.3
 
