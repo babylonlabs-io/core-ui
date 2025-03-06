@@ -37,7 +37,7 @@ export function ListItem({
     if (loadingStyle === LoadingStyle.ShowSpinnerAndValue) {
       return (
         <>
-          {value}
+          <span className="opacity-50">{value}</span>
           <Loader size={20} />
         </>
       );
