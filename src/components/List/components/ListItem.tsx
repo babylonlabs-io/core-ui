@@ -1,6 +1,12 @@
 import { twJoin } from "tailwind-merge";
 
 import { Text } from "@/components/Text";
+import { Loader } from "@/components/Loader";
+
+export enum LoadingState {
+  ShowSpinner = "show-spinner",
+  ShowSpinnerAndValue = "show-spinner-and-value",
+}
 
 export interface ListItemProps {
   className?: string;
@@ -8,9 +14,27 @@ export interface ListItemProps {
   title: string | JSX.Element;
   value: string | JSX.Element;
   suffix?: JSX.Element;
+  loading?: LoadingState;
 }
 
-export function ListItem({ className, orientation = "horizontal", title, value, suffix }: ListItemProps) {
+export function ListItem({ className, orientation = "horizontal", title, value, suffix, loading }: ListItemProps) {
+  const renderValue = () => {
+    if (!loading) {
+      return value;
+    }
+    if (loading === LoadingState.ShowSpinner) {
+      return <Loader size={20} />;
+    }
+    if (loading === LoadingState.ShowSpinnerAndValue) {
+      return (
+        <>
+          {value}
+          <Loader size={20} />
+        </>
+      );
+    }
+  };
+
   return (
     <div className={twJoin("bbn-list-item", `bbn-list-item-${orientation}`, className)}>
       <Text
@@ -21,10 +45,12 @@ export function ListItem({ className, orientation = "horizontal", title, value, 
         {title}
       </Text>
 
-      <Text as="div" className={twJoin("bbn-list-value", `bbn-list-value-${orientation}`)} variant="body1">
-        {value}
-        {suffix}
-      </Text>
+      <div className="flex items-center gap-2">
+        <Text as="div" className={twJoin("bbn-list-value", `bbn-list-value-${orientation}`)} variant="body1">
+          {renderValue()}
+          {suffix}
+        </Text>
+      </div>
     </div>
   );
 }
