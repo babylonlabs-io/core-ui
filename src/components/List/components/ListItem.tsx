@@ -54,12 +54,10 @@ export function ListItem({
         {title}
       </Text>
 
-      <div className="flex items-center gap-2">
-        <Text as="div" className={twJoin("bbn-list-value", `bbn-list-value-${orientation}`)} variant="body1">
-          {renderValue()}
-          {suffix}
-        </Text>
-      </div>
+      <Text as="div" className={twJoin("bbn-list-value", `bbn-list-value-${orientation}`)} variant="body1">
+        {renderValue()}
+        {suffix}
+      </Text>
     </div>
   );
 }
