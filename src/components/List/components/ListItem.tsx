@@ -3,7 +3,7 @@ import { twJoin } from "tailwind-merge";
 import { Text } from "@/components/Text";
 import { Loader } from "@/components/Loader";
 
-export enum LoadingState {
+export enum LoadingStyle {
   ShowSpinner = "show-spinner",
   ShowSpinnerAndValue = "show-spinner-and-value",
 }
@@ -14,18 +14,27 @@ export interface ListItemProps {
   title: string | JSX.Element;
   value: string | JSX.Element;
   suffix?: JSX.Element;
-  loading?: LoadingState;
+  loading?: boolean;
+  loadingStyle?: LoadingStyle;
 }
 
-export function ListItem({ className, orientation = "horizontal", title, value, suffix, loading }: ListItemProps) {
+export function ListItem({
+  className,
+  orientation = "horizontal",
+  title,
+  value,
+  suffix,
+  loading,
+  loadingStyle = LoadingStyle.ShowSpinner,
+}: ListItemProps) {
   const renderValue = () => {
     if (!loading) {
       return value;
     }
-    if (loading === LoadingState.ShowSpinner) {
+    if (loadingStyle === LoadingStyle.ShowSpinner) {
       return <Loader size={20} />;
     }
-    if (loading === LoadingState.ShowSpinnerAndValue) {
+    if (loadingStyle === LoadingStyle.ShowSpinnerAndValue) {
       return (
         <>
           {value}
