@@ -13,6 +13,7 @@ export interface ListItemProps {
   orientation?: "adaptive" | "horizontal" | "vertical";
   title: string | JSX.Element;
   value: string | JSX.Element;
+  prefix?: JSX.Element;
   suffix?: JSX.Element;
   loading?: boolean;
   loadingStyle?: LoadingStyle;
@@ -23,25 +24,39 @@ export function ListItem({
   orientation = "horizontal",
   title,
   value,
+  prefix,
   suffix,
   loading,
   loadingStyle = LoadingStyle.ShowSpinner,
 }: ListItemProps) {
-  const renderValue = () => {
-    if (!loading) {
-      return value;
-    }
-    if (loadingStyle === LoadingStyle.ShowSpinner) {
+  const renderLeftContent = () => {
+    if (loading && loadingStyle === LoadingStyle.ShowSpinner) {
       return <Loader size={20} />;
     }
-    if (loadingStyle === LoadingStyle.ShowSpinnerAndValue) {
+
+    return (
+      <>
+        {prefix}
+        {loading && loadingStyle === LoadingStyle.ShowSpinnerAndValue ? (
+          <span className="opacity-50">{value}</span>
+        ) : (
+          value
+        )}
+      </>
+    );
+  };
+
+  const renderRightContent = () => {
+    if (loading && loadingStyle === LoadingStyle.ShowSpinnerAndValue) {
       return (
         <>
-          <span className="opacity-50">{value}</span>
+          {suffix}
           <Loader size={20} />
         </>
       );
     }
+
+    return suffix;
   };
 
   return (
@@ -54,9 +69,13 @@ export function ListItem({
         {title}
       </Text>
 
-      <Text as="div" className={twJoin("bbn-list-value", `bbn-list-value-${orientation}`)} variant="body1">
-        {renderValue()}
-        {suffix}
+      <Text
+        as="div"
+        className={twJoin("bbn-list-value", `bbn-list-value-${orientation}`, "flex items-center")}
+        variant="body1"
+      >
+        <div className="flex flex-grow items-center gap-1">{renderLeftContent()}</div>
+        <div className="ml-auto flex items-center gap-1">{renderRightContent()}</div>
       </Text>
     </div>
   );
