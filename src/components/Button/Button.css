@@ -17,11 +17,45 @@
 
   &-outlined {
     &.bbn-btn-primary {
-      @apply border-secondary-strokeDark text-accent-primary hover:bg-secondary-strokeDark/5 disabled:border-secondary-strokeDark/30 disabled:text-accent-primary/30 border hover:brightness-125 disabled:bg-transparent;
+      @apply border-secondary-strokeDark text-accent-primary hover:bg-secondary-strokeDark/5 hover:border-secondary-strokeDark disabled:border-secondary-strokeDark/30 disabled:text-accent-primary/30 border hover:brightness-125 disabled:bg-transparent;
     }
 
     &.bbn-btn-secondary {
-      @apply border border-secondary-main text-secondary-main hover:bg-secondary-main/5 hover:brightness-110 disabled:border-secondary-main/30 disabled:bg-transparent disabled:text-secondary-main/30;
+      @apply border border-secondary-main text-secondary-main hover:bg-secondary-main/5 hover:border-secondary-main hover:brightness-110 disabled:border-secondary-main/30 disabled:bg-transparent disabled:text-secondary-main/30;
+    }
+  }
+
+  &-border-light {
+    &.bbn-btn-outlined {
+      @apply border-secondary-strokeLight text-secondary-strokeDark;
+      
+      &:hover {
+        @apply border-secondary-strokeDark bg-secondary-strokeDark/5;
+      }
+      
+      &:disabled {
+        @apply border-secondary-strokeLight/30 text-secondary-strokeDark/30 bg-transparent;
+      }
+    }
+  }
+
+  &-filled {
+    &.bbn-btn-outlined {
+      &.bbn-btn-primary {
+        @apply bg-secondary-strokeDark/10 hover:bg-secondary-strokeDark/15;
+        
+        &:disabled {
+          @apply bg-secondary-strokeDark/5;
+        }
+      }
+      
+      &.bbn-btn-secondary {
+        @apply bg-secondary-main/10 hover:bg-secondary-main/15;
+        
+        &:disabled {
+          @apply bg-secondary-main/5;
+        }
+      }
     }
   }
 

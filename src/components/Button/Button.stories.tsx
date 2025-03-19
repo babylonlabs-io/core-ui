@@ -14,3 +14,19 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: { children: "Button" },
 };
+
+export const OutlinedFilled: Story = {
+  args: {
+    children: "Outlined Filled Button",
+    variant: "outlined",
+    filled: true,
+  },
+};
+
+export const OutlinedWithLightBorder: Story = {
+  args: {
+    children: "Light Border Button",
+    variant: "outlined",
+    borderStyle: "light",
+  },
+};
