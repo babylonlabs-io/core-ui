@@ -1,5 +1,9 @@
 <p align="center">
-    <img alt="Babylon Logo" src="https://github.com/user-attachments/assets/b21652b5-847d-48b2-89a7-0f0969a50900" width="100" />
+    <img
+        alt="Babylon Logo"
+        src="https://github.com/user-attachments/assets/dc74271e-90f1-44bd-9122-2b7438ab375c"
+        width="100"
+    />
     <h3 align="center">@babylonlabs-io/core-ui</h3>
     <p align="center">Babylon Core UI</p>
     <p align="center"><strong>React</strong> library</p>
