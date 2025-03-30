@@ -1,5 +1,11 @@
 # @babylonlabs-io/core-ui
 
+## 1.0.0
+
+### Major Changes
+
+- 3396786: chore: release first major version
+
 ## 0.11.0
 
 ### Minor Changes
