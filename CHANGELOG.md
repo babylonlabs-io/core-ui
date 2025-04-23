@@ -1,5 +1,11 @@
 # @babylonlabs-io/core-ui
 
+## 1.0.1
+
+### Patch Changes
+
+- ff12522: fix sourcemap
+
 ## 1.0.0
 
 ### Major Changes
