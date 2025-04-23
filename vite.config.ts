@@ -21,7 +21,7 @@ export default defineConfig({
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime", "tailwind-merge", "yup"],
       output: {
-        sourcemapExcludeSources: true,
+        sourcemapExcludeSources: false,
       },
     },
   },
