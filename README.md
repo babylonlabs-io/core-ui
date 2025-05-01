@@ -10,7 +10,7 @@
 
 ---
 
-## Installation
+## 👨🏻‍💻 Installation
 
 To install the package, run the following command:
 
@@ -18,13 +18,42 @@ To install the package, run the following command:
 npm i @babylonlabs-io/core-ui
 ```
 
-## Version Release
+## 📝 Commit Format & Automated Releases
 
-### Stable Version
+This project uses [**Conventional Commits**](https://www.conventionalcommits.org/en/v1.0.0/)
+and [**semantic-release**](https://semantic-release.gitbook.io/) to automate
+versioning, changelog generation, and npm publishing.
 
-Stable release versions are manually released from the main branch.
+### ✅ How It Works
 
-## Storybook
+1. All commits must follow the **Conventional Commits** format.
+2. When changes are merged into the `main` branch:
+   - `semantic-release` analyzes commit messages
+   - Determines the appropriate semantic version bump (`major`, `minor`, `patch`)
+   - Tags the release in Git with release change log
+   - Publishes the new version to npm
+
+### 🧱 Commit Message Examples
+
+```console
+feat: add support for slashing script
+fix: handle invalid staking tx gracefully
+docs: update README with commit conventions
+refactor!: remove deprecated method and cleanup types
+```
+
+> **Note:** For breaking changes, add a `!` after the type (
+> e.g. `feat!:` or `refactor!:`) and include a description of the breaking
+> change in the commit body.
+
+### 🚀 Releasing
+
+Just commit your changes using the proper format and merge to `main`.
+The CI pipeline will handle versioning and releasing automatically — no manual
+tagging or version bumps needed.
+
+
+## 📖 Storybook
 
 To view the component library, run:
 
@@ -32,7 +61,7 @@ To view the component library, run:
 npm run storybook
 ```
 
-## Usage
+##  💪 Usage
 
 Provide examples of how to use the library in a project. Include code snippets and explanations.
 
