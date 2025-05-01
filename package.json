@@ -1,6 +1,6 @@
 {
   "name": "@babylonlabs-io/core-ui",
-  "version": "1.0.1",
+  "version": "0.0.0-semantic-release",
   "type": "module",
   "types": "dist/index.d.ts",
   "publishConfig": {
@@ -41,9 +41,12 @@
     "yup": "^1.5.0"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.9",
     "@chromatic-com/storybook": "^3.2.2",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@eslint/js": "^9.13.0",
+    "@semantic-release/github": "^11.0.2",
+    "@semantic-release/npm": "^12.0.1",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
     "@storybook/addon-onboarding": "^8.4.2",
@@ -63,12 +66,13 @@
     "eslint-plugin-storybook": "^0.11.0",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "globals": "^15.11.0",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "react-icons": "^5.3.0",
+    "semantic-release": "^24.2.3",
     "storybook": "^8.4.2",
     "storybook-dark-mode": "^4.0.2",
     "tailwindcss": "^3.4.14",

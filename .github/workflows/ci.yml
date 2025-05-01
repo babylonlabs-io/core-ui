@@ -1,0 +1,15 @@
+name: ci
+
+permissions:
+  contents: read
+  
+on:
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  lint_test:
+    uses: babylonlabs-io/.github/.github/workflows/reusable_node_lint_test.yml@v0.13.1
+    with:
+      run-build: true
