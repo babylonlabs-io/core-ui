@@ -17,7 +17,8 @@
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.es.js"
     },
-    "./tailwind": "./tailwind.config.js"
+    "./tailwind": "./tailwind.config.js",
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "npm run storybook",
