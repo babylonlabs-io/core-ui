@@ -1,5 +1,4 @@
 import { type PropsWithChildren, Children, cloneElement, isValidElement, ReactElement } from "react";
-import { twMerge } from "tailwind-merge";
 import "./List.css";
 
 import { type ListItemProps, ListItem } from "./components/ListItem";
@@ -16,9 +15,9 @@ const ROW_ORIENTATION = {
   vertical: "horizontal",
 } as const;
 
-export function List({ className, orientation = "vertical", children }: PropsWithChildren<ListProps>) {
+export function List({ orientation = "vertical", children }: PropsWithChildren<ListProps>) {
   return (
-    <div className={twMerge("bbn-list", `bbn-list-${orientation}`, className)}>
+    <div className="flex flex-row items-start gap-2">
       {Children.map(children, (item) =>
         isValidElement(item) ? cloneElement(item, { orientation: ROW_ORIENTATION[orientation] }) : item,
       )}
