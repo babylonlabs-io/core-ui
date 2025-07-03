@@ -12,7 +12,14 @@ export interface ListItemProps {
 
 export function ListItem({ className, orientation = "horizontal", title, value, suffix }: ListItemProps) {
   return (
-    <div className={twJoin("bbn-list-item", `bbn-list-item-${orientation}`, className)}>
+    <div
+      className={twJoin(
+        "bbn-list-item",
+        `bbn-list-item-${orientation}`,
+        "rounded bg-secondary-highlight px-6 py-4",
+        className,
+      )}
+    >
       <Text
         as="div"
         className={twJoin("bbn-list-title", `bbn-list-title-${orientation}`)}
