@@ -17,7 +17,6 @@ export function ListItem({ newDesign, className, orientation = "horizontal", tit
       className={twJoin(
         newDesign ? "bbn-list-item-new-design" : "bbn-list-item",
         `bbn-list-item-${orientation}`,
-        newDesign ? "rounded bg-secondary-highlight px-6 py-4" : "",
         className,
       )}
     >

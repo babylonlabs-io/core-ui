@@ -31,7 +31,7 @@
 }
 
 .bbn-list-item-new-design {
-  @apply flex border-0;
+  @apply flex border-0 rounded bg-secondary-highlight px-6 py-4;
 
   &-horizontal {
     @apply flex-row items-center justify-between border-b border-secondary-strokeLight py-4 last-of-type:border-0;
