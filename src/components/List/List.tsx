@@ -23,14 +23,22 @@ export function List({
   orientation = "vertical",
   children,
 }: PropsWithChildren<ListProps>) {
+  const getListClasses = () => {
+    if (newDesign) {
+      return twMerge("bbn-list-new-design", `bbn-list-new-design-${orientation}`, className);
+    }
+    return twMerge("bbn-list", `bbn-list-${orientation}`, className);
+  };
+
   return (
-    <div
-      className={
-        newDesign ? "flex flex-row items-start gap-2" : twMerge("bbn-list", `bbn-list-${orientation}`, className)
-      }
-    >
+    <div className={getListClasses()}>
       {Children.map(children, (item) =>
-        isValidElement(item) ? cloneElement(item, { orientation: ROW_ORIENTATION[orientation] }) : item,
+        isValidElement(item)
+          ? cloneElement(item, {
+              orientation: ROW_ORIENTATION[orientation],
+              newDesign,
+            })
+          : item,
       )}
     </div>
   );

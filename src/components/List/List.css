@@ -14,6 +14,22 @@
   }
 }
 
+.bbn-list-new-design {
+  @apply flex items-start gap-2;
+
+  &-horizontal {
+    @apply flex-row;
+  }
+
+  &-vertical {
+    @apply flex-col;
+  }
+
+  &-adaptive {
+    @apply flex-col md:flex-row;
+  }
+}
+
 .bbn-list-item {
   @apply flex;
 
@@ -31,7 +47,7 @@
 }
 
 .bbn-list-item-new-design {
-  @apply flex border-0 rounded bg-secondary-highlight px-6 py-4;
+  @apply flex border-0 rounded bg-secondary-highlight px-6 py-4 w-full;
 
   &-horizontal {
     @apply flex-row items-center justify-between border-b border-secondary-strokeLight py-4 last-of-type:border-0;
