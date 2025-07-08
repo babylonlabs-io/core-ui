@@ -14,6 +14,22 @@
   }
 }
 
+.bbn-list-new-design {
+  @apply flex items-start gap-2;
+
+  &-horizontal {
+    @apply flex-row;
+  }
+
+  &-vertical {
+    @apply flex-col;
+  }
+
+  &-adaptive {
+    @apply flex-col md:flex-row;
+  }
+}
+
 .bbn-list-item {
   @apply flex;
 
@@ -30,6 +46,22 @@
   }
 }
 
+.bbn-list-item-new-design {
+  @apply flex border-0 rounded bg-secondary-highlight px-6 py-4 w-full;
+
+  &-horizontal {
+    @apply flex-row items-center justify-between border-b border-secondary-strokeLight py-4 last-of-type:border-0;
+  }
+
+  &-vertical {
+    @apply flex-1 flex-col items-start justify-start gap-1.5 border-r border-secondary-strokeLight px-6 last-of-type:border-0;
+  }
+
+  &-adaptive {
+    @apply flex-1 items-center justify-between py-4 md:flex-col md:items-start md:justify-center md:px-6 md:py-0 md:flex-1 md:h-auto;
+  }
+}
+
 .bbn-list-title {
   @apply text-accent-secondary;
 
@@ -38,7 +70,31 @@
   }
 }
 
+.bbn-list-title-new-design {
+  @apply text-accent-primary;
+
+  &-adaptive {
+    @apply text-base md:text-sm;
+  }
+}
+
 .bbn-list-value {
+  @apply text-accent-secondary;
+
+  &-horizontal {
+    @apply flex items-center gap-1;
+  }
+
+  &-vertical {
+    @apply flex w-full items-center justify-between;
+  }
+
+  &-adaptive {
+    @apply flex items-center gap-1 md:w-full md:justify-between;
+  }
+}
+
+.bbn-list-value-new-design {
   @apply text-accent-primary;
 
   &-horizontal {
