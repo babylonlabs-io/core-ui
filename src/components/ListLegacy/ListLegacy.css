@@ -39,7 +39,7 @@
 }
 
 .bbn-list-value-legacy {
-  @apply text-accent-secondary;
+  @apply text-accent-primary;
 
   &-horizontal {
     @apply flex items-center gap-1;
