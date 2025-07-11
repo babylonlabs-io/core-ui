@@ -15,6 +15,7 @@ export * from "./components/Popover";
 export * from "./components/Card";
 export * from "./components/Toggle";
 export * from "./components/List";
+export * from "./components/ListLegacy";
 export * from "./components/Badge";
 
 export * from "./widgets/form/Form";
