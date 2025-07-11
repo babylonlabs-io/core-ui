@@ -15,7 +15,6 @@ export * from "./components/Popover";
 export * from "./components/Card";
 export * from "./components/Toggle";
 export * from "./components/List";
-export * from "./components/ListLegacy";
 export * from "./components/Badge";
 
 export * from "./widgets/form/Form";
@@ -26,6 +25,8 @@ export * from "./widgets/form/RadioField";
 export * from "./widgets/form/SelectField";
 export * from "./widgets/form/HiddenField";
 export * from "./widgets/form/hooks";
+
+export * from "./components/ListLegacy";
 
 export { ScrollLocker } from "./context/Dialog.context";
 export { useFormContext, useFormState, useWatch } from "react-hook-form";
