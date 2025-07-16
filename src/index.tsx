@@ -26,8 +26,10 @@ export * from "./widgets/form/RadioField";
 export * from "./widgets/form/SelectField";
 export * from "./widgets/form/HiddenField";
 export * from "./widgets/form/hooks";
-export * from "./widgets/form/AmountSubsection";
-export * from "./widgets/form/FeesSection";
+
+export * from "./widgets/new-design/AmountSubsection";
+export * from "./widgets/new-design/FeesSection";
+export * from "./widgets/new-design/PreviewModal";
 
 export * from "./components/ListLegacy";
 
