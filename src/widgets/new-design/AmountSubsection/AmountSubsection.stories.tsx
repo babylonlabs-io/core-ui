@@ -24,7 +24,7 @@ const schema = yup
 export const Default: Story = {
   args: {
     fieldName: "amount",
-    currencyIcon: "https://via.placeholder.com/40",
+    currencyIcon: "https://placehold.co/40x40",
     currencyName: "BBN",
     placeholder: "Enter Amount",
     displayBalance: true,
