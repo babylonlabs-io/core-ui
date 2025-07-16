@@ -7,41 +7,20 @@ import { BBNFeeAmount } from "./BBNFeeAmount";
 import { Total } from "./Total";
 
 interface FeesSectionProps {
-  /** Wrapper className override. */
   className?: string;
-
-  /** Current fee rate (sats/vB). */
   feeRate: number | string;
-  /** Handler invoked when the edit button is pressed. */
   onFeeRateEdit?: () => void;
-
-  /** Network fee amount in token units. */
   feeAmount: number | string;
-  /** Symbol of the token (e.g. BTC). */
   coinSymbol: string;
-  /** Optional fiat/equivalent hint for the fee amount. */
   feeAmountHint?: string;
-
-  /** Total amount (token units). */
   total: number | string;
-  /** Optional fiat/equivalent hint for total. */
   totalHint?: string;
-
-  /** Babylon network fee amount. Optional – row will be hidden if not provided. */
   bbnFeeAmount?: number | string;
-  /** Symbol of the Babylon token (e.g. BBN, BABY). Required if bbnFeeAmount is provided. */
   bbnCoinSymbol?: string;
-  /** Optional fiat/equivalent hint for Babylon fee amount. */
   bbnFeeAmountHint?: string;
-  /** Optional decimals override for Babylon fee amount (defaults to 5). */
   bbnFeeDecimals?: number;
 }
 
-/**
- * Wrapper that displays the three standard fee rows (network fee rate,
- * network fee amount and total). All data is injected via props so that the
- * consuming application retains full control over business-logic.
- */
 export function FeesSection({
   className,
   feeRate,

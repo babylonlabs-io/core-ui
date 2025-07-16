@@ -2,28 +2,14 @@ import { Text } from "../../../components/Text";
 import { twMerge } from "tailwind-merge";
 
 interface TotalProps {
-  /**
-   * Total amount expressed in token units.
-   * Can be pre-formatted string or numeric value.
-   */
   total: number | string;
-  /** Symbol of the token, e.g. BTC. */
   coinSymbol: string;
-  /** Optional secondary hint (fiat equivalent). */
   hint?: string;
-  /** Optional row title. Defaults to "Total". */
   title?: string;
-  /** Additional Tailwind classes. */
   className?: string;
-  /** When `total` is numeric, number of decimals to format with. Defaults to 8. */
   decimals?: number;
 }
 
-/**
- * Pure UI component that displays the total row inside a FeesSection. All
- * numerical calculations as well as currency conversions must be performed by
- * the consumer.
- */
 export function Total({ total, coinSymbol, hint, title = "Total", className, decimals = 8 }: TotalProps) {
   const formattedTotal =
     typeof total === "number"

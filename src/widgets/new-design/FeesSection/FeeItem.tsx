@@ -3,17 +3,8 @@ import { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface FeeItemProps extends PropsWithChildren {
-  /**
-   * Label to show on the left side of the row (e.g. "Network Fee").
-   */
   title: string;
-  /**
-   * Optional additional Tailwind classes.
-   */
   className?: string;
-  /**
-   * Optional hint rendered below the value on the right (e.g. USD equivalent).
-   */
   hint?: string;
 }
 
