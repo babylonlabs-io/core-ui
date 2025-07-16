@@ -98,6 +98,7 @@
     "@popperjs/core": "^2.11.8",
     "react-hook-form": "^7.54.0",
     "react-popper": "^2.3.0",
+    "decimal.js-light": "^2.5.1",
     "tw-colors": "^3.3.2"
   }
 }
