@@ -7,9 +7,9 @@ interface SubMenuProps {
   /** Nested submenu content */
   children: React.ReactNode;
   /** Primary text to display in the menu item */
-  name?: string; // New – prefer this going forward
+  name?: string; // This is the recommended property for the primary text in menu items. Use this instead of older alternatives.
   /** Secondary text for the menu item */
-  description?: string; // New – prefer this going forward
+  description?: string; // This is the recommended property for secondary text in menu items. Use this instead of older alternatives.
   /** Leading icon */
   icon?: React.ReactNode;
   /** Icon used for the back button inside the drawer */
