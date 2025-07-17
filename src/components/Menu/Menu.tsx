@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { twJoin } from "tailwind-merge";
 
-import { MobileDialog } from "../Dialog";
 import { Popover } from "../Popover";
 import { MenuProvider } from "./MenuContext";
+import { MenuDrawer } from "./MenuDrawer";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { Placement } from "@popperjs/core";
 
 interface MenuProps {
@@ -27,7 +28,7 @@ export const Menu: React.FC<MenuProps> = ({
 }) => {
   const [internalOpen, setInternalOpen] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
   const isOpen = controlledOpen !== undefined ? controlledOpen : internalOpen;
   const setIsOpen = (open: boolean) => {
@@ -38,31 +39,6 @@ export const Menu: React.FC<MenuProps> = ({
   };
 
   const onClose = () => setIsOpen(false);
-
-  // Check if mobile view - we'll need to use the same breakpoint logic as simple-staking
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  // Handle escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      return () => document.removeEventListener("keydown", handleEscape);
-    }
-  }, [isOpen]);
 
   const menuContent = <div className="relative w-full overflow-hidden">{children}</div>;
 
@@ -84,13 +60,17 @@ export const Menu: React.FC<MenuProps> = ({
       </div>
 
       {isMobile ? (
-        <MobileDialog
-          open={isOpen}
+        <MenuDrawer
+          isOpen={isOpen}
           onClose={onClose}
-          className="bg-[#FFFFFF] p-0 text-accent-primary dark:bg-[#252525]"
+          onBackdropClick={onClose}
+          fullHeight={true}
+          fullWidth={true}
+          showBackButton={true}
+          showDivider={false}
         >
           {menuContent}
-        </MobileDialog>
+        </MenuDrawer>
       ) : (
         <Popover
           anchorEl={triggerRef.current}

@@ -1,7 +1,6 @@
 import React from "react";
 import { twJoin } from "tailwind-merge";
 
-import { Text } from "../Text";
 import { useMenuContext } from "./MenuContext";
 
 interface MenuItemProps {
@@ -83,14 +82,8 @@ export const MenuItem: React.FC<MenuItemProps> = ({
       <div className="flex items-center gap-3">
         {icon && <div className="flex-shrink-0">{icon}</div>}
         <div className="flex flex-col">
-          <Text variant="body1" className="text-sm font-medium text-accent-primary">
-            {name}
-          </Text>
-          {description && (
-            <Text variant="body2" className="text-xs text-accent-secondary">
-              {description}
-            </Text>
-          )}
+          <div className="text-sm font-medium text-accent-primary">{name}</div>
+          {description && <div className="text-xs text-accent-secondary">{description}</div>}
         </div>
       </div>
       {suffix}

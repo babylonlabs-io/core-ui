@@ -5,6 +5,7 @@ import { MenuItem } from "./MenuItem";
 import { SubMenu } from "./SubMenu";
 import { SubMenuItem } from "./SubMenuItem";
 import { Button } from "../Button";
+import { Text } from "../Text";
 
 const meta: Meta<typeof Menu> = {
   title: "Components/Menu",
@@ -62,9 +63,9 @@ export const Default: Story = {
   render: () => {
     const [selectedTheme, setSelectedTheme] = useState("auto");
     const themes = [
-      { id: "auto", label: "Auto", description: "Follow system preference" },
-      { id: "light", label: "Light", description: "Always use light theme" },
-      { id: "dark", label: "Dark", description: "Always use dark theme" },
+      { id: "auto", label: "Auto", description: undefined },
+      { id: "light", label: "Light", description: undefined },
+      { id: "dark", label: "Dark", description: undefined },
     ];
     return (
       <div className="p-4">
@@ -75,25 +76,49 @@ export const Default: Story = {
             </button>
           }
         >
-          <SubMenu name="Theme" description={selectedTheme} icon={<ThemeIcon />} suffix={<ChevronRightIcon />}>
-            <div className="flex flex-col">
-              {themes.map((theme) => (
-                <SubMenuItem
-                  key={theme.id}
-                  label={theme.label}
-                  description={theme.description}
-                  selected={selectedTheme === theme.id}
-                  onClick={() => {
-                    setSelectedTheme(theme.id);
-                    console.log(`Theme selected: ${theme.id}`);
-                  }}
-                />
-              ))}
-            </div>
-          </SubMenu>
-          <MenuItem name="Report a bug" icon={<ReportABugIcon />} suffix={<ChevronRightIcon />} />
-          <MenuItem name="Terms of Use" suffix={<ChevronRightIcon />} />
-          <MenuItem name="Privacy Policy" suffix={<ChevronRightIcon />} />
+          <Text variant="body1" className="px-7 pb-6 text-accent-primary md:hidden">
+            Settings
+          </Text>
+          <div className="mx-[21px] rounded-lg md:mx-0">
+            <SubMenu
+              name="Theme"
+              description={selectedTheme}
+              icon={<ThemeIcon />}
+              suffix={<ChevronRightIcon />}
+              className="bg-secondary-highlight md:bg-transparent"
+            >
+              <div className="flex flex-col">
+                {themes.map((theme) => (
+                  <SubMenuItem
+                    key={theme.id}
+                    label={theme.label}
+                    description={theme?.description ?? ""}
+                    selected={selectedTheme === theme.id}
+                    onClick={() => {
+                      setSelectedTheme(theme.id);
+                      console.log(`Theme selected: ${theme.id}`);
+                    }}
+                  />
+                ))}
+              </div>
+            </SubMenu>
+            <MenuItem
+              name="Report a bug"
+              icon={<ReportABugIcon />}
+              suffix={<ChevronRightIcon />}
+              className="mb-4 bg-secondary-highlight md:mb-0 md:bg-transparent"
+            />
+            <MenuItem
+              name="Terms of Use"
+              suffix={<ChevronRightIcon />}
+              className="bg-secondary-highlight md:bg-transparent"
+            />
+            <MenuItem
+              name="Privacy Policy"
+              suffix={<ChevronRightIcon />}
+              className="bg-secondary-highlight md:bg-transparent"
+            />
+          </div>
           <div className="my-4 flex justify-center">
             <Button className="!bg-[#D5FCE8] !text-black" variant="contained">
               Switch to BABY Staking

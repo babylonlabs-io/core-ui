@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { twJoin } from "tailwind-merge";
 import { MenuDrawer } from "./MenuDrawer";
+import { useMenuContext } from "./MenuContext";
 
 interface SubMenuProps {
   /** Nested submenu content */
@@ -35,6 +36,7 @@ export const SubMenu: React.FC<SubMenuProps> = ({
   titleAlign = "left",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuContext = useMenuContext();
 
   const defaultBackIcon = (
     <svg
@@ -92,7 +94,10 @@ export const SubMenu: React.FC<SubMenuProps> = ({
         title={name || ""}
         titleAlign={titleAlign}
         backIcon={backIcon || defaultBackIcon}
-        className={twJoin("z-50", contentClassName)}
+        fullHeight={menuContext?.isMobile}
+        fullWidth={menuContext?.isMobile}
+        onBackdropClick={menuContext?.isMobile ? undefined : () => setIsOpen(false)}
+        className={twJoin(menuContext?.isMobile ? "z-60" : "z-50", contentClassName)}
       >
         {children}
       </MenuDrawer>
