@@ -41,6 +41,7 @@ export const SubMenuItem: React.FC<SubMenuItemProps> = ({
 
   return (
     <button
+      role="menuitem"
       onClick={onClick}
       disabled={disabled}
       className={twJoin(
