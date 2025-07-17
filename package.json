@@ -96,9 +96,10 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@popperjs/core": "^2.11.8",
+    "decimal.js-light": "^2.5.1",
+    "lodash": "^4.17.21",
     "react-hook-form": "^7.54.0",
     "react-popper": "^2.3.0",
-    "decimal.js-light": "^2.5.1",
     "tw-colors": "^3.3.2"
   }
 }

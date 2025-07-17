@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { throttle } from "lodash";
 
 /**
  * Hook to detect if the viewport is in mobile size
  * @param breakpoint - The breakpoint in pixels (default: 768)
+ * @param throttleMs - The throttle delay in milliseconds (default: 100)
  * @returns boolean indicating if viewport is mobile size
  */
-export function useIsMobile(breakpoint: number = 768): boolean {
+export function useIsMobile(breakpoint: number = 768, throttleMs: number = 100): boolean {
   const [isMobile, setIsMobile] = useState(() => {
     // Initial state based on current window width
     if (typeof window !== "undefined") {
@@ -14,17 +16,23 @@ export function useIsMobile(breakpoint: number = 768): boolean {
     return false;
   });
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < breakpoint);
-    };
+  const throttledCheckMobile = useRef<(() => void) | null>(null);
 
-    checkMobile();
-
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
+  const checkMobile = useCallback(() => {
+    setIsMobile(window.innerWidth < breakpoint);
   }, [breakpoint]);
+
+  useEffect(() => {
+    throttledCheckMobile.current = throttle(checkMobile, throttleMs);
+    checkMobile();
+    window.addEventListener("resize", throttledCheckMobile.current);
+
+    return () => {
+      if (throttledCheckMobile.current) {
+        window.removeEventListener("resize", throttledCheckMobile.current);
+      }
+    };
+  }, [checkMobile, throttleMs]);
 
   return isMobile;
 }
