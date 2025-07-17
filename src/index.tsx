@@ -19,6 +19,7 @@ export * from "./components/Badge";
 export * from "./components/SubSection";
 export * from "./components/FinalityProviderLogo";
 export * from "./components/CounterButton";
+export * from "./components/Menu";
 
 export * from "./widgets/form/Form";
 export * from "./widgets/form/NumberField";
