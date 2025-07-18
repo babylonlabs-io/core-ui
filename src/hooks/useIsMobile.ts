@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { throttle } from "lodash";
+import throttle from "lodash.throttle";
 
 /**
  * Hook to detect if the viewport is in mobile size
@@ -16,7 +16,7 @@ export function useIsMobile(breakpoint: number = 768, throttleMs: number = 100):
     return false;
   });
 
-  const throttledCheckMobile = useRef<(() => void) | null>(null);
+  const throttledCheckMobile = useRef<ReturnType<typeof throttle>>();
 
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth < breakpoint);
@@ -30,6 +30,7 @@ export function useIsMobile(breakpoint: number = 768, throttleMs: number = 100):
     return () => {
       if (throttledCheckMobile.current) {
         window.removeEventListener("resize", throttledCheckMobile.current);
+        throttledCheckMobile.current.cancel();
       }
     };
   }, [checkMobile, throttleMs]);
