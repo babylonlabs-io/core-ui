@@ -34,6 +34,7 @@ export * from "./widgets/new-design/AmountSubsection";
 export * from "./widgets/new-design/FinalityProviderSubsection";
 export * from "./widgets/new-design/FeesSection";
 export * from "./widgets/new-design/PreviewModal";
+export * from "./widgets/new-design/SettingMenu";
 
 export * from "./components/ListLegacy";
 
