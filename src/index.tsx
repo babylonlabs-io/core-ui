@@ -17,7 +17,6 @@ export * from "./components/Toggle";
 export * from "./components/List";
 export * from "./components/Badge";
 export * from "./components/SubSection";
-export * from "./components/FinalityProviderLogo";
 export * from "./components/CounterButton";
 export * from "./components/Menu";
 
@@ -30,11 +29,14 @@ export * from "./widgets/form/SelectField";
 export * from "./widgets/form/HiddenField";
 export * from "./widgets/form/hooks";
 
-export * from "./widgets/new-design/AmountSubsection";
-export * from "./widgets/new-design/FinalityProviderSubsection";
-export * from "./widgets/new-design/FeesSection";
-export * from "./widgets/new-design/PreviewModal";
+export * from "./widgets/sections/AmountSubsection";
+export * from "./widgets/sections/FinalityProviderSubsection";
+export * from "./widgets/sections/FeesSection";
+export * from "./widgets/sections/PreviewModal";
 export * from "./widgets/new-design/SettingMenu";
+
+export * from "./elements/FinalityProviderLogo";
+export * from "./elements/FinalityProviderItem";
 
 export * from "./components/ListLegacy";
 
