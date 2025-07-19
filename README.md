@@ -10,6 +10,16 @@
 
 ---
 
+## 🚨 Repository Archived
+
+**This repository has been archived and moved to the Babylon Toolkit monorepo.**
+
+The Babylon Core UI package is now maintained as part of the [Babylon Toolkit monorepo](https://github.com/babylonlabs-io/babylon-toolkit/tree/main/packages/babylon-core-ui).
+
+For the latest updates, issues, and contributions, please visit the new location.
+
+---
+
 ## 👨🏻‍💻 Installation
 
 To install the package, run the following command:
