@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { FinalityProviderSubsection } from "./FinalityProviderSubsection";
-import type { ProviderItem } from "../../../components/ProvidersList/ProvidersList";
+import type { ProviderItem } from "../../../elements/ProvidersList/ProvidersList";
 
 const sampleItems: ProviderItem[] = [
   {
@@ -84,72 +84,102 @@ export const Default: Story = {
   args: {
     max: 3,
     items: sampleItems,
+    actionText: "Add BSN and Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: () => alert("Remove clicked"),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
 
 export const Empty: Story = {
   args: {
     max: 3,
     items: [],
+    actionText: "Add BSN and Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: () => alert("Remove clicked"),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
 
 export const MultipleItems: Story = {
   args: {
     max: 5,
     items: multipleItems,
+    actionText: "Add BSN and Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: (bsnId?: string) => alert(`Remove clicked for ${bsnId}`),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
 
 export const AtMaximumCapacity: Story = {
   args: {
     max: 3,
     items: maxCapacityItems,
+    actionText: "Add BSN and Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: (bsnId?: string) => alert(`Remove clicked for ${bsnId}`),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
 
 export const SingleProviderMode: Story = {
   args: {
     max: 1,
     items: [],
+    actionText: "Add Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: () => alert("Remove clicked"),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
 
 export const SingleProviderModeWithItem: Story = {
   args: {
     max: 1,
     items: [sampleItems[0]],
+    actionText: "Add Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: (bsnId?: string) => alert(`Remove clicked for ${bsnId}`),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
 
 export const ProvidersWithoutLogos: Story = {
@@ -174,12 +204,17 @@ export const ProvidersWithoutLogos: Story = {
         },
       },
     ],
+    actionText: "Add BSN and Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: (bsnId?: string) => alert(`Remove clicked for ${bsnId}`),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
 
 export const ProvidersWithoutDescriptions: Story = {
@@ -206,10 +241,15 @@ export const ProvidersWithoutDescriptions: Story = {
         },
       },
     ],
+    actionText: "Add BSN and Finality Provider",
     onAdd: () => alert("Add clicked"),
     onRemove: (bsnId?: string) => alert(`Remove clicked for ${bsnId}`),
   },
-  render: (props: { max: number; items: ProviderItem[]; onAdd: () => void; onRemove: (bsnId?: string) => void }) => (
-    <FinalityProviderSubsection {...props} />
-  ),
+  render: (props: {
+    max: number;
+    items: ProviderItem[];
+    actionText: string;
+    onAdd: () => void;
+    onRemove: (bsnId?: string) => void;
+  }) => <FinalityProviderSubsection {...props} />,
 };
