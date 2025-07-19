@@ -12,6 +12,7 @@ import {
   type SettingMenuDescriptionProps,
   type SettingMenuCustomContentProps,
 } from "./types";
+import { twJoin } from "tailwind-merge";
 
 const SettingsIcon = () => (
   <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +72,7 @@ const SettingMenuBase: React.FC<SettingMenuProps> = ({
 };
 
 const SettingMenuTitle: React.FC<SettingMenuTitleProps> = ({ children, className = "" }) => (
-  <Text variant="body1" className={`px-7 pb-6 text-accent-primary md:hidden ${className}`}>
+  <Text variant="body1" className={twJoin("px-7 pb-6 text-accent-primary md:hidden", className)}>
     {children}
   </Text>
 );
@@ -93,7 +94,7 @@ const SettingMenuGroup: React.FC<SettingMenuGroupProps> = ({
     }
   };
 
-  return <div className={`${getBackgroundClass()} ${className}`.trim()}>{children}</div>;
+  return <div className={twJoin(getBackgroundClass(), className)}>{children}</div>;
 };
 
 // Item component
@@ -125,7 +126,7 @@ const SettingMenuItem: React.FC<SettingMenuItemProps> = ({
       disabled={disabled}
       selected={selected}
       className={className}
-      suffix={suffix || <ChevronRightIcon />}
+      suffix={suffix === undefined && onClick ? <ChevronRightIcon /> : suffix}
     />
   );
 };
