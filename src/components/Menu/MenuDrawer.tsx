@@ -94,7 +94,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
   // For fullHeight drawers (mobile), use Portal to ensure proper theme sync
   if (fullHeight) {
     return (
-      <Portal mounted={true} rootClassName="menu-drawer-portal">
+      <Portal mounted rootClassName="menu-drawer-portal">
         {onBackdropClick && (
           <div
             className={twJoin(
